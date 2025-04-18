@@ -1,0 +1,46 @@
+body {
+    background: #d7bde2 ;
+    text-align: center;
+}
+.ol{
+    width: 150px;
+    height: auto;
+    position: absolute;
+    right:2px;
+    filter: hue-rotate(0deg);
+    border-radius: 10px;
+}
+.l{
+    width: 150px;
+    height: auto;
+    position: absolute;
+    left:2px;
+    filter: hue-rotate(0deg);
+    border-radius: 10px;
+}
+p{
+    font-size: 150%;
+    font-family: monospace;
+    }
+    .info{
+    font-size: 150%;
+    text-align: left;
+    font-family: inherit;
+    text-align: left;
+    }
+    .a{
+    font-size: 30px; 
+      padding: 5px 15px; 
+      background-color:mediumpurple;
+      color: black; 
+      border: none; 
+      border-radius: 5px; 
+      text-align: center;
+}
+
+footer {
+    text-align: initial;
+    text-justify: justify;
+}
+
+   

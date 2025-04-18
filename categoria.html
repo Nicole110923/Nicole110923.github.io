@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Libros</title>
+  <link rel="stylesheet" href="categoria.css" />
+</head>
+<body>
+  <img src="logo.png" alt="logo" class="l" />
+  <img src="logo.png" alt="logo" class="ol" />
+  <h1>Catálogo de Libros<br>Libros de todos y con todo</h1>
+
+<div id="carrito-container">
+  <h2>🛒 Carrito de Compras</h2>
+  <ul id="carrito-lista"></ul>
+  <p id="total">Total: $0</p>
+
+
+  <button id="boton-pagar" class="n">Pagar</button>
+  <div id="formulario-pago" style="display: none; margin-top: 10px;">
+    <h3>Detalles de Pago</h3>
+    <form id="pago-form">
+      <label>
+        Nombre completo:<br>
+        <input type="text" name="nombre" required />
+      </label><br><br>
+      <label>
+        Dirección:<br>
+        <input type="text" name="direccion" required />
+      </label><br><br>
+      <label>
+        Teléfono:<br>
+        <input type="tel" name="telefono" required />
+      </label><br><br>
+      <label>
+        Número de tarjeta:<br>
+        <input type="text" name="tarjeta" required maxlength="16" />
+      </label><br><br>
+      <button type="submit">Confirmar pago</button>
+    </form>
+  </div>
+</div>
+<a href="oyp.html">
+ <div class="catalogo">
+        <div class="libro">
+      <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio">
+      <div class="info-libro">
+        <h2><strong>Orgullo y Prejuicio</strong></h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Novela costumbrista.</p>
+        <p><strong>Precio:</strong> $299</p></a>
+        <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="sys.html">
+    <div class="libro">
+      <img src="sys.png" class="imagen-libro" alt="Sentido y Sensibilidad">
+      <div class="info-libro">
+        <h2>Sentido y Sensibilidad</h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Novela romántica, Ficción, Drama</p>
+        <p><strong>Precio:</strong> $289</p></a>
+        <button class="agregar-carrito" data-nombre="Sentido y Sensibilidad" data-precio="289">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="e.html">
+    <div class="libro">
+      <img src="e.png" class="imagen-libro" alt="Emma">
+      <div class="info-libro">
+        <h2>Emma</h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Romance, Comedia, Novela de costumbres</p>
+        <p><strong>Precio:</strong> $329</p></a>
+        <button class="agregar-carrito" data-nombre="Emma" data-precio="329">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="p.html">
+    <div class="libro">
+      <img src="p.png" class="imagen-libro" alt="Persuasión">
+      <div class="info-libro">
+        <h2>Persuasión</h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Romance, Ficción</p>
+        <p><strong>Precio:</strong> $299</p></a>
+        <button class="agregar-carrito" data-nombre="Persuasión" data-precio="299">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="abn.html">
+    <div class="libro">
+      <img src="abn.png" class="imagen-libro" alt="La Abadía de Northanger">
+      <div class="info-libro">
+        <h2>La Abadía de Northanger</h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Novela de costumbres, Satírica</p>
+        <p><strong>Precio:</strong> $289</p></a>
+        <button class="agregar-carrito" data-nombre="La Abadía de Northanger" data-precio="289">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="mp.html">
+    <div class="libro">
+      <img src="mp.png" class="imagen-libro" alt="Mansfield Park">
+      <div class="info-libro">
+        <h2>Mansfield Park</h2>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Novela de costumbres, Drama</p>
+        <p><strong>Precio:</strong> $319</p></a>
+        <button class="agregar-carrito" data-nombre="Mansfield Park" data-precio="319">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="dd.html">
+    <div class="libro">
+      <img src="dd.png" class="imagen-libro" alt="Después de Diciembre">
+      <div class="info-libro">
+        <h2>Después de Diciembre</h2>
+        <p><strong>Autor:</strong> Joana Marcus</p>
+        <p><strong>Género:</strong> Romance, Literatura Juvenil, Drama</p>
+        <p><strong>Precio:</strong> $329</p></a>
+        <button class="agregar-carrito" data-nombre="Después de Diciembre" data-precio="329">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="b.html">
+    <div class="libro">
+      <img src="b.png" class="imagen-libro" alt="Boulevard">
+      <div class="info-libro">
+        <h2>Boulevard</h2>
+        <p><strong>Autor:</strong> Flor M. Salvador</p>
+        <p><strong>Género:</strong> Romance, Literatura Juvenil, Drama</p>
+        <p><strong>Precio:</strong> $299</p></a>
+        <button class="agregar-carrito" data-nombre="Boulevard" data-precio="299">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="fdl.html">
+    <div class="libro">
+      <img src="fdl.png" class="imagen-libro" alt="Fabricante de Lágrimas">
+      <div class="info-libro">
+        <h2>Fabricante de Lágrimas</h2>
+        <p><strong>Autor:</strong> Erin Doom</p>
+        <p><strong>Género:</strong> Novela rosa, Romance contemporáneo, Fantasía, Aventura</p>
+        <p><strong>Precio:</strong> $399</p></a>
+        <button class="agregar-carrito" data-nombre="Fabricante de Lágrimas" data-precio="399">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="brujas1.html">
+    <div class="libro">
+      <img src="brujas1.png" class="imagen-libro" alt="Asesino de Brujas 1">
+      <div class="info-libro">
+        <h2>Asesino de Brujas 1</h2>
+        <p><strong>Autor:</strong> Shelby Mahurin</p>
+        <p><strong>Género:</strong> Fantasía, Aventura</p>
+        <p><strong>Precio:</strong> $459</p></a>
+        <button class="agregar-carrito" data-nombre="Asesino de Brujas 1" data-precio="459">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="brujas2.html">
+    <div class="libro">
+      <img src="brujas2.png" class="imagen-libro" alt="Asesino de Brujas 2">
+      <div class="info-libro">
+        <h2>Asesino de Brujas 2</h2>
+        <p><strong>Autor:</strong> Shelby Mahurin</p>
+        <p><strong>Género:</strong> Fantasía, Aventura</p>
+        <p><strong>Precio:</strong> $499</p></a>
+        <button class="agregar-carrito" data-nombre="Asesino de Brujas 2" data-precio="499">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="brujas3.html">
+    <div class="libro">
+      <img src="brujas3.png" class="imagen-libro" alt="Asesino de Brujas 3">
+      <div class="info-libro">
+        <h2>Asesino de Brujas 3</h2>
+        <p><strong>Autor:</strong> Shelby Mahurin</p>
+        <p><strong>Género:</strong> Fantasía, Aventura</p>
+        <p><strong>Precio:</strong> $539</p></a>
+        <button class="agregar-carrito" data-nombre="Asesino de Brujas 3" data-precio="539">Agregar al carrito</button>
+      </div>
+    </div>
+
+<a href="d.html">
+    <div class="libro">
+      <img src="damian.png" class="imagen-libro" alt="Damián">
+      <div class="info-libro">
+        <h2>Damián</h2>
+        <p><strong>Autor:</strong> Alex Mirez</p>
+        <p><strong>Género:</strong> Novela rosa, Ficción</p>
+        <p><strong>Precio:</strong> $349</p></a>
+        <button class="agregar-carrito" data-nombre="Damián" data-precio="349">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="adt.html">
+    <div class="libro">
+      <img src="adt.png" class="imagen-libro" alt="A Dos Metros de Ti">
+      <div class="info-libro">
+        <h2>A Dos Metros de Ti</h2>
+        <p><strong>Autor:</strong> Rachael Lippincott</p>
+        <p><strong>Género:</strong> Romance, Drama</p>
+        <p><strong>Precio:</strong> $349</p></a>
+        <button class="agregar-carrito" data-nombre="A Dos Metros de Ti" data-precio="349">Agregar al carrito</button>
+      </div>
+    </div>
+<a href="ads.html">
+    <div class="libro">
+      <img src="ads.png" class="imagen-libro" alt="Alas de Sangre">
+      <div class="info-libro">
+        <h2>Alas de Sangre</h2>
+        <p><strong>Autor:</strong> Rebecca Yarros</p>
+        <p><strong>Género:</strong> Fantasía, Acción, Aventura</p>
+        <p><strong>Precio:</strong> $399</p></a>
+        <button class="agregar-carrito" data-nombre="Alas de Sangre" data-precio="399">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+<a href="paginaprincipal.html"><button class="inicio">Inicio🏠</button></a>
+  <a href="categoria.html"><button class="arriba">Volver</button></a>
+
+<script src="carro.js"></script>
+
+</body>
+</html>

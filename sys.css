@@ -1,0 +1,33 @@
+
+body {
+    background: #d7bde2 ;
+text-align: center;
+}
+
+p{
+    font-size: 150%;
+    font-family: monospace;
+    text-align: right;
+    }
+h1{
+    text-align: right;
+    }
+     
+   .oyp {
+    text-align: left;
+    width: 500px;
+    height: auto;
+    position: absolute;
+    left:1px;
+    border-radius: 10px;
+}
+.a{
+    font-size: 30px; 
+      padding: 5px 15px; 
+      background-color:mediumpurple;
+      color: black; 
+      border: none; 
+      border-radius: 5px; 
+      text-align: center;
+}
+
