@@ -5,29 +5,7 @@ body {
     margin: 0;
     padding: 0;
 }
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
 
- .l{
-    width: 150px;
-    height: auto;
-    position: absolute;
-    left: 2px;
-    filter: hue-rotate(0deg);
-    border-radius: 10px;
-}
-.ol{
-    width: 150px;
-    height: auto;
-    position: absolute;
-    right:2px;
-    filter: hue-rotate(0deg);
-    border-radius: 10px;
-}
-}
 header {
     position: relative;
     padding: 10px 20px;
@@ -39,10 +17,18 @@ footer {
     background-color: #f5eef8;
     margin-top: 40px;
 }
-
+i, {
+    font-size: 30px;
+}
 h1, h2, h3 {
     color: #4a235a;
     margin: 10px 0;
+}
+
+p {
+    font-family: cursive;
+    font-size: 20px;
+    color: #4a235a;
 }
 
 .eslogan {
@@ -114,7 +100,7 @@ h1, h2, h3 {
     padding-top: 10px;
 }
 
-.info-libro h2, h3 {
+.info-libro h2, .info-libro h3 {
     font-size: 1.5em;
     color: #333;
 }
@@ -138,6 +124,7 @@ h1, h2, h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-height: 90vh;
     overflow-y: auto;
+    text-align: left;
 }
 
 #carrito-container h2 {
@@ -168,9 +155,7 @@ h1, h2, h3 {
     text-align: center;
     color: #884ea0;
 }
-.m{
-   text-align: right;
-}
+
 .agregar-carrito {
     margin-top: 10px;
     padding: 10px 15px;
@@ -186,76 +171,6 @@ h1, h2, h3 {
     background-color: #884ea0;
 }
 
-.a{
-    font-size: 25px; 
-      background-color:lightpink;
-      color: black; 
-      border: none; 
-      border-radius: 5px; 
-      text-align: center;
-}
-#carrito-container {
-    text-align:left ;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 300px;
-    background-color: #f9ebf9;
-    border: 2px solid #d7bde2;
-    border-radius: 10px;
-    padding: 15px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-#carrito-container h2 {
-    font-size: 1.2em;
-    color: #6c3483;
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-#carrito-lista {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#carrito-lista li {
-    font-size: 0.95em;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #d7bde2;
-    padding: 4px 0;
-    color: #4a235a;
-}
-
-#total {
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: center;
-    color: #884ea0;
-}
-.n{
-    background:#d7bde2;
-    border-radius: 20px;
-}
-.agregar-carrito {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #a569bd;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.agregar-carrito:hover {
-    background-color: #884ea0;
-}
 .descuento {
     width: 250px;
     height: auto;
@@ -264,11 +179,12 @@ h1, h2, h3 {
     transition: transform 0.2s;
 }
 
-
 .logo {
     width: 150px;
     position: absolute;
     top: 10px;
+    border-radius: 10px;
+    filter: hue-rotate(0deg);
 }
 
 .logo.l {
@@ -277,6 +193,24 @@ h1, h2, h3 {
 
 .logo.ol {
     right: 2px;
+}
+
+.m {
+    text-align: right;
+}
+
+.n {
+    background: #d7bde2;
+    border-radius: 20px;
+}
+
+.a {
+    font-size: 25px; 
+    background-color: lightpink;
+    color: black; 
+    border: none; 
+    border-radius: 5px; 
+    text-align: center;
 }
 
 div.a {
@@ -298,10 +232,4 @@ div.a {
 
 .enlace:hover {
     text-decoration: underline;
-}
-
-p {
-    font-family: cursive;
-    font-size: 20px;
-    color: #4a235a;
 }
