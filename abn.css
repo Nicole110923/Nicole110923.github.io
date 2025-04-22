@@ -8,6 +8,15 @@ p{
     font-family: monospace;
     text-align: right;
     }
+.inicio, .arriba {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #a569bd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+}
 h1{
     text-align: right;
     }
