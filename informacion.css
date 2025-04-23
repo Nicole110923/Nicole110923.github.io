@@ -19,7 +19,6 @@ body {
     border-radius: 10px;
 }
 footer {
-    text-align: center;
     font-size: 20px;
     padding: 20px;
     background-color: #f5eef8;
@@ -27,6 +26,10 @@ footer {
 }
 i, {
     font-size: 30px;
+}
+h1, h2, h3 {
+    color: #4a235a;
+    margin: 10px 0;
 }
 p {
     font-family: cursive;
