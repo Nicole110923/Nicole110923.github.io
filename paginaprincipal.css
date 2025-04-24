@@ -117,16 +117,16 @@ p {
   width: 320px;
   max-height: 450px;
   overflow-y: auto;
-  background-color: white;
-  border: 2px solid #ccc;
+  background-color: #f9ebf9;
+  border: 2px solid #d7bde2;
   border-radius: 12px;
   padding: 16px;
   display: none;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1000;
 }
-
 #carrito-container.activo {
   display: block;
   transform: scale(1.05);
