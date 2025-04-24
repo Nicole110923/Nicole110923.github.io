@@ -134,17 +134,10 @@ p {
 }
 
 #abrir-carrito {
-  background-color: #884ea0;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 1001;
-  display: inline-block; 
-  margin-top: 20px; 
-  margin-left: 20px; 
+  font-family: inherit;
+    font-size: 150%;
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -262,9 +255,6 @@ div.a {
     text-decoration: none;
 }
 
-.boton-menu:hover {
-  background-color: #e67e00; 
-}
 
 
 #boton-pagar {
