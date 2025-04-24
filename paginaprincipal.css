@@ -254,3 +254,55 @@ div.a {
 .enlace:hover {
     text-decoration: underline;
 }
+.boton-menu {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.boton-menu:hover {
+  background-color: #e67e22;
+}
+
+#boton-pagar {
+  margin-top: 15px;
+  background-color: #a569bd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#boton-pagar:hover {
+  background-color: #884ea0;
+}
+
+#formulario-pago input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#formulario-pago button[type="submit"] {
+  margin-top: 10px;
+  background-color: #6c3483;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#formulario-pago button[type="submit"]:hover {
+  background-color: #512e5f;
+}
