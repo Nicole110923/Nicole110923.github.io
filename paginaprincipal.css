@@ -1,5 +1,5 @@
 body {
-    background: #e8daef;
+    background: #d7bde2;
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -14,33 +14,31 @@ header {
 footer {
     font-size: 20px;
     padding: 20px;
-    background-color: #f4ecf7;
+    background-color: #f5eef8;
     margin-top: 40px;
 }
-
-i {
+i, {
     font-size: 30px;
 }
-
 h1, h2, h3 {
-    color: #6d4c89;
+    color: #4a235a;
     margin: 10px 0;
 }
 
 p {
     font-family: cursive;
     font-size: 20px;
-    color: #6d4c89;
+    color: #4a235a;
 }
 
 .eslogan {
     text-align: center;
     padding: 20px;
-    background-color: #d7bde2;
+    background-color: #ce93d8;
     margin-bottom: 20px;
     font-family: initial;
     font-size: 40px;
-    color: #6d4c89;
+    color: #4a235a;
     border-radius: 10px;
 }
 
@@ -50,7 +48,7 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #c39bd3;
+    background-color: #a569bd;
     margin: 0;
 }
 
@@ -64,7 +62,7 @@ p {
 }
 
 .menu a:hover {
-    background-color: #af7ac5;
+    background-color: #884ea0;
     border-radius: 5px;
 }
 
@@ -77,9 +75,9 @@ p {
 }
 
 .libro {
-    background-color: #f5eef8;
+    background-color: #ebdef0;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
     padding: 15px;
     text-align: center;
@@ -104,55 +102,56 @@ p {
 
 .info-libro h2, .info-libro h3 {
     font-size: 1.5em;
-    color: #5e4b7c;
+    color: #333;
 }
 
 .info-libro p {
     font-size: 1em;
-    color: #7d669e;
+    color: #555;
     margin: 5px 0;
 }
-
 #carrito-container {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 320px;
-    max-height: 450px;
-    overflow-y: auto;
-    background-color: #f4ecf7;
-    border: 2px solid #d7bde2;
-    border-radius: 12px;
-    padding: 16px;
-    display: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 1000;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 320px;
+  max-height: 450px;
+  overflow-y: auto;
+  background-color: #f9ebf9;
+  border: 2px solid #d7bde2;
+  border-radius: 12px;
+  padding: 16px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
 }
-
 #carrito-container.activo {
-    display: block;
-    transform: scale(1.05);
-    opacity: 1;
+  display: block;
+  transform: scale(1.05);
+  opacity: 1;
 }
 
 #abrir-carrito {
-    font-family: inherit;
-    font-size: 150%;
-    color: #6d4c89;
-    text-decoration: none;
-    display: inline-block;
-    transition: color 0.3s ease;
+  font-family: inherit;
+  font-size: 150%;
+  color: white;
+  text-decoration: none;
+  display: inline-block; 
+  transition: background-color 0.3s ease;
 }
 
 #abrir-carrito:hover {
-    text-decoration: underline;
+  
+  text-decoration: underline;
 }
+
+
 
 #carrito-container h2 {
     font-size: 1.2em;
-    color: #7e57c2;
+    color: #6c3483;
     margin-top: 0;
     margin-bottom: 10px;
     text-align: center;
@@ -167,22 +166,22 @@ p {
 #carrito-lista li {
     font-size: 0.95em;
     margin-bottom: 5px;
-    border-bottom: 1px solid #d2b4de;
+    border-bottom: 1px solid #d7bde2;
     padding: 4px 0;
-    color: #6d4c89;
+    color: #4a235a;
 }
 
 #total {
     margin-top: 10px;
     font-weight: bold;
     text-align: center;
-    color: #7e57c2;
+    color: #884ea0;
 }
 
 .agregar-carrito {
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #c39bd3;
+    background-color: #a569bd;
     color: white;
     border: none;
     border-radius: 6px;
@@ -191,7 +190,7 @@ p {
 }
 
 .agregar-carrito:hover {
-    background-color: #af7ac5;
+    background-color: #884ea0;
 }
 
 .descuento {
@@ -223,14 +222,14 @@ p {
 }
 
 .n {
-    background: #e8daef;
+    background: #d7bde2;
     border-radius: 20px;
 }
 
 .a {
     font-size: 25px; 
-    background-color: #eacdeb;
-    color: #4a235a; 
+    background-color: lightpink;
+    color: black; 
     border: none; 
     border-radius: 5px; 
     text-align: center;
@@ -240,7 +239,7 @@ div.a {
     border-radius: 30px;
     display: inline-block;
     text-align: center;
-    background: #c39bd3;
+    background: #a569bd;
     width: 22%;
     margin: 10px;
     padding: 10px;
@@ -257,48 +256,50 @@ div.a {
     text-decoration: underline;
 }
 
+
 .boton-menu {
-    font-family: inherit;
+
+     font-family: inherit;
     font-size: 150%;
     color: white;
     text-decoration: none;
 }
 
 #boton-pagar {
-    margin-top: 15px;
-    background-color: #c39bd3;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
+  margin-top: 15px;
+  background-color: #a569bd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
 }
 
 #boton-pagar:hover {
-    background-color: #af7ac5;
+  background-color: #884ea0;
 }
 
 #formulario-pago input {
-    width: 100%;
-    padding: 6px;
-    margin-top: 4px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #formulario-pago button[type="submit"] {
-    margin-top: 10px;
-    background-color: #a678b4;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
+  margin-top: 10px;
+  background-color: #6c3483;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
 }
 
 #formulario-pago button[type="submit"]:hover {
-    background-color: #8e66a2;
+  background-color: #512e5f;
 }
