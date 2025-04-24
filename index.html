@@ -10,10 +10,15 @@
 <body>
 
   <header>
-  <img src="logo.png" alt="Logo izquierdo" class="logo l">
-  <h1 class="eslogan">✨Refugio en las palabras✨<br>✨Libertad en las historias✨</h1>
-</header>
- <button id="boton-pagar" class="n">Pagar</button>
+    <img src="logo.png" alt="Logo izquierdo" class="logo l">
+    <h1 class="eslogan">✨Refugio en las palabras✨<br>✨Libertad en las historias✨</h1>
+  </header>
+
+  <!-- Botón para abrir el carrito flotante -->
+  <button id="abrir-carrito">🛒 Ver Carrito</button>
+
+  <button id="boton-pagar" class="n">Pagar</button>
+
   <div id="formulario-pago" style="display: none; margin-top: 10px;">
     <h3>Detalles de Pago</h3>
     <form id="pago-form">
@@ -36,13 +41,14 @@
       <button type="submit">Confirmar pago</button>
     </form>
   </div>
-</div>
-<div id="carrito-container">
-  <h2>🛒 Carrito de Compras</h2>
-  <ul id="carrito-lista"></ul>
-  <p id="total">Total: $0</p>
 
-</div>
+
+  <div id="carrito-container">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="carrito-lista"></ul>
+    <p id="total">Total: $0</p>
+  </div>
+
   <nav class="menu">
     <ul>
       <li><a class="enlace" href="informacion.html">Información</a></li>
@@ -51,9 +57,9 @@
       <li><a class="enlace" href="index.html">Ver Carrito</a></li>
     </ul>
   </nav>
+
   <main>
     <h2>🛒 Productos Más Vendidos 🛒</h2>
-
     <section class="catalogo">
 
       <div class="libro">
@@ -99,21 +105,30 @@
   </main>
 
   <footer>
-<p class="m">Contactos<br>
-  <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
-    <i class="fab fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-    <i class="fab fa-tiktok"></i></a>
-<a href="https://wa.me/56666666666" target="_blank">
-    <i class="fab fa-whatsapp"></i></a>
- <a href="mailto:ncbooks25@gmail.com" target="_blank">
-    <i class="fas fa-envelope"></i></a></p>
-
-
-      <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
+    <p class="m">Contactos<br>
+      <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
+        <i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
+        <i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/56666666666" target="_blank">
+        <i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ncbooks25@gmail.com" target="_blank">
+        <i class="fas fa-envelope"></i></a>
+    </p>
+    <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
     N'C BOOKS.</p>
   </footer>
-<script src="carro.js"></script>
+
+ 
+  <script src="carro.js"></script>
+
+
+  <script>
+    document.getElementById("abrir-carrito").addEventListener("click", function () {
+      const carrito = document.getElementById("carrito-container");
+      carrito.classList.toggle("activo");
+    });
+  </script>
 
 </body>
 </html>
