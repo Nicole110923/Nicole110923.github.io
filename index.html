@@ -51,7 +51,7 @@
       <li><a class="enlace" href="informacion.html">Información</a></li>
       <li><a class="enlace" href="categoria.html">Catálogo</a></li>
       <li><a class="enlace" href="contacto.html">Contacto</a></li>
-      <li><button id="abrir-carrito" class="enlace">🛒 Ver Carrito</button></li>
+     <li><a href="#" id="abrir-carrito" class="enlace">🛒 Ver Carrito</a></li>
 
     </ul>
   </nav>
@@ -120,10 +120,12 @@
 
   <script>
 
-    document.getElementById("abrir-carrito").addEventListener("click", function () {
-      const carrito = document.getElementById("carrito-container");
-      carrito.classList.toggle("activo");
-    });
+document.getElementById("abrir-carrito").addEventListener("click", function (e) {
+  e.preventDefault();
+  const carrito = document.getElementById("carrito-container");
+  carrito.classList.toggle("activo");
+});
+
 
  
     document.getElementById("boton-pagar").addEventListener("click", function () {
