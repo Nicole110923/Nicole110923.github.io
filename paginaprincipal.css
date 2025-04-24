@@ -136,15 +136,10 @@ p {
 #abrir-carrito {
   font-family: inherit;
   font-size: 150%;
-  color: white;
-  text-decoration: none;
   display: inline-block; 
   
 }
 
-#abrir-carrito:hover {
-  text-decoration: underline;
-}
 
 
 
