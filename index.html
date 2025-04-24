@@ -117,22 +117,21 @@
     N'C BOOKS.</p>
   </footer>
 
-  <script src="carro.js"></script>
 
   <script>
-    // Mostrar/ocultar carrito
+
     document.getElementById("abrir-carrito").addEventListener("click", function () {
       const carrito = document.getElementById("carrito-container");
       carrito.classList.toggle("activo");
     });
 
-    // Mostrar/ocultar formulario de pago
+ 
     document.getElementById("boton-pagar").addEventListener("click", function () {
       const formulario = document.getElementById("formulario-pago");
       formulario.style.display = formulario.style.display === "none" ? "block" : "none";
     });
 
-    // Confirmar pago
+
     document.getElementById("pago-form").addEventListener("submit", function (e) {
       e.preventDefault();
       alert("¡Pago realizado con éxito!");
@@ -142,5 +141,6 @@
     });
   </script>
 
+  <script src="carro.js"></script>
 </body>
 </html>
