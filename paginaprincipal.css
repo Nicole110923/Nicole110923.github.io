@@ -139,11 +139,10 @@ p {
   color: white;
   text-decoration: none;
   display: inline-block; 
-  transition: background-color 0.3s ease;
+  
 }
 
 #abrir-carrito:hover {
-  
   text-decoration: underline;
 }
 
@@ -261,7 +260,6 @@ div.a {
 
      font-family: inherit;
     font-size: 150%;
-    color: white;
     text-decoration: none;
 }
 
