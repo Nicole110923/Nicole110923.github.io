@@ -14,52 +14,45 @@
     <h1 class="eslogan">✨Refugio en las palabras✨<br>✨Libertad en las historias✨</h1>
   </header>
 
- 
-  <button id="abrir-carrito">🛒 Ver Carrito</button>
+  <!-- Carrito flotante (con el botón "Pagar" y formulario dentro) -->
+  <div id="carrito-container">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="carrito-lista"></ul>
+    <p id="total">Total: $0</p>
+    <button id="boton-pagar" class="n">Pagar</button>
 
-  <button id="boton-pagar" class="n">Pagar</button>
-
-  <div id="formulario-pago" style="display: none; margin-top: 10px;">
-    <h3>Detalles de Pago</h3>
-    <form id="pago-form">
-      <label>
-        Nombre completo:<br>
-        <input type="text" name="nombre" required />
-      </label><br><br>
-      <label>
-        Dirección:<br>
-        <input type="text" name="direccion" required />
-      </label><br><br>
-      <label>
-        Teléfono:<br>
-        <input type="tel" name="telefono" required />
-      </label><br><br>
-      <label>
-        Número de tarjeta:<br>
-        <input type="text" name="tarjeta" required maxlength="16" />
-      </label><br><br>
-      <button type="submit">Confirmar pago</button>
-    </form>
+    <div id="formulario-pago" style="display: none; margin-top: 10px;">
+      <h3>Detalles de Pago</h3>
+      <form id="pago-form">
+        <label>
+          Nombre completo:<br>
+          <input type="text" name="nombre" required />
+        </label><br><br>
+        <label>
+          Dirección:<br>
+          <input type="text" name="direccion" required />
+        </label><br><br>
+        <label>
+          Teléfono:<br>
+          <input type="tel" name="telefono" required />
+        </label><br><br>
+        <label>
+          Número de tarjeta:<br>
+          <input type="text" name="tarjeta" required maxlength="16" />
+        </label><br><br>
+        <button type="submit">Confirmar pago</button>
+      </form>
+    </div>
   </div>
 
-
-  <!-- Carrito flotante (con el botón "Pagar" dentro) -->
-<div id="carrito-container">
-  <h2>🛒 Carrito de Compras</h2>
-  <ul id="carrito-lista"></ul>
-  <p id="total">Total: $0</p>
-  <button id="boton-pagar" class="n">Pagar</button>
-</div>
-
-<nav class="menu">
-  <ul>
-    <li><a class="enlace" href="informacion.html">Información</a></li>
-    <li><a class="enlace" href="categoria.html">Catálogo</a></li>
-    <li><a class="enlace" href="contacto.html">Contacto</a></li>
-    <li><button id="abrir-carrito" class="boton-menu">🛒 Ver Carrito</button></li>
-  </ul>
-</nav>
-
+  <nav class="menu">
+    <ul>
+      <li><a class="enlace" href="informacion.html">Información</a></li>
+      <li><a class="enlace" href="categoria.html">Catálogo</a></li>
+      <li><a class="enlace" href="contacto.html">Contacto</a></li>
+      <li><button id="abrir-carrito" class="boton-menu">🛒 Ver Carrito</button></li>
+    </ul>
+  </nav>
 
   <main>
     <h2>🛒 Productos Más Vendidos 🛒</h2>
@@ -122,17 +115,30 @@
     N'C BOOKS.</p>
   </footer>
 
- 
   <script src="carro.js"></script>
 
+  <script>
+    // Mostrar/ocultar carrito
+    document.getElementById("abrir-carrito").addEventListener("click", function () {
+      const carrito = document.getElementById("carrito-container");
+      carrito.classList.toggle("activo");
+    });
 
-<script>
-  document.getElementById("abrir-carrito").addEventListener("click", function () {
-    const carrito = document.getElementById("carrito-container");
-    carrito.classList.toggle("activo");
-  });
-</script>
+    // Mostrar/ocultar formulario de pago
+    document.getElementById("boton-pagar").addEventListener("click", function () {
+      const formulario = document.getElementById("formulario-pago");
+      formulario.style.display = formulario.style.display === "none" ? "block" : "none";
+    });
 
+    // Confirmar pago
+    document.getElementById("pago-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("¡Pago realizado con éxito!");
+      this.reset();
+      document.getElementById("formulario-pago").style.display = "none";
+      document.getElementById("carrito-container").classList.remove("activo");
+    });
+  </script>
 
 </body>
 </html>
