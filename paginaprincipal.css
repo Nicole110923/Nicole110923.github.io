@@ -306,7 +306,17 @@ div.a {
 #boton-pagar:hover {
   background-color: #884ea0;
 }
-
+#boton-eliminar{
+     margin-top: 15px;
+  background-color: #a569bd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
 #formulario-pago input {
   width: 100%;
   padding: 6px;
