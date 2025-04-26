@@ -159,7 +159,7 @@ p {
 }
 
 .menu button.enlace:hover {
-    background-color: #884ea0;
+    
     border-radius: 5px;
     text-decoration: underline;
 }
