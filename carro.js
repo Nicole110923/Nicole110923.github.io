@@ -13,7 +13,7 @@ function actualizarCarrito() {
     const itemCarrito = document.createElement('li');
     itemCarrito.textContent = `${item.nombre} - $${item.precio} x${item.cantidad}`;
 
-    const botonEliminar = document.createElement('button');
+    const botonEliminar = document.createElement('boton-Eliminar');
     botonEliminar.textContent = 'Eliminar';
     botonEliminar.style.marginLeft = '10px';
 
