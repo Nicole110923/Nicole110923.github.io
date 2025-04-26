@@ -27,7 +27,7 @@ i, {
 h1 {
     text-align: center;
     padding: 20px;
-    background-color:#d2b4de ;
+    background-color:#af7ac5 ;
     margin-bottom: 20px;
     font-family: Copperplate:;
 }
@@ -306,7 +306,7 @@ div.a {
 #boton-pagar:hover {
   background-color: #884ea0;
 }
-#boton-eliminar{
+#boton-Eliminar{
      margin-top: 15px;
   background-color: #a569bd;
   color: white;
@@ -316,6 +316,9 @@ div.a {
   font-size: 16px;
   cursor: pointer;
   width: 100%;
+}
+#boton-Eliminar:hover {
+  background-color: #884ea0;
 }
 #formulario-pago input {
   width: 100%;
