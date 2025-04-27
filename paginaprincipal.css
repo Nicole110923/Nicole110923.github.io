@@ -27,7 +27,7 @@ i, {
 h1 {
     text-align: center;
     padding: 20px;
-    background-color:#9b59b6;
+    background-color:#a569bd;
     margin-bottom: 20px;
     font-family: Copperplate:;
 }
@@ -143,11 +143,21 @@ p {
   font-family: inherit;
   font-size: 150%;
   display: inline-block; 
-    background-color: #884ea0;
+  background-color: #a569bd; 
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#abrir-carrito:hover {
+  background-color: #884ea0; 
 }
 
 .menu button.enlace {
-    background: none;
+    background-color: #a569bd; 
     border: none;
     color: white;
     font-weight: bold;
@@ -158,12 +168,12 @@ p {
     transition: background-color 0.3s ease;
 }
 
+
 .menu button.enlace:hover {
-    
+    background-color: #884ea0; /* ¡El mismo que los enlaces! */
     border-radius: 5px;
     text-decoration: underline;
 }
-
 
 
 #carrito-container h2 {
@@ -284,13 +294,20 @@ div.a {
 }
 
 
-.boton-menu {
-  background-color: #884ea0;
-     font-family: inherit;
-    font-size: 150%;
-    text-decoration: none;
+#boton-eliminar{
+  margin-top: 15px;
+  background-color: #a569bd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
 }
-
+#boton-eliminar:hover {
+  background-color: #884ea0;
+}
 #boton-pagar {
   margin-top: 15px;
   background-color: #a569bd;
@@ -306,20 +323,7 @@ div.a {
 #boton-pagar:hover {
   background-color: #884ea0;
 }
-#boton-Eliminar{
-     margin-top: 15px;
-  background-color: #bb8fce ;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-}
-#boton-Eliminar:hover {
-  background-color: #884ea0;
-}
+
 #formulario-pago input {
   width: 100%;
   padding: 6px;
