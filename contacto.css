@@ -43,6 +43,15 @@ inset-block: 09px;
       border-radius: 5px; 
       text-align: center;
 }
+footer {
+    font-size: 20px;
+    padding: 20px;
+    background-color: #f5eef8;
+    margin-top: 40px;
+}
+i, {
+    font-size: 30px;
+}
 
 
 
