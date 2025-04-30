@@ -1,62 +1,73 @@
+
+
 body {
-    background: #d7bde2 ;
+    background: #d7bde2;
     text-align: center;
+    font-family: 'Poppins', sans-serif; /* Aplicamos la fuente Poppins a todo el contenido */
 }
-.ol{
+
+.ol, .l {
     width: 150px;
     height: auto;
     position: absolute;
-    right:2px;
-    filter: hue-rotate(0deg);
     border-radius: 10px;
 }
-.l{
-    width: 150px;
-    height: auto;
-    position: absolute;
-    left:2px;
+
+.ol {
+    right: 2px;
     filter: hue-rotate(0deg);
-    border-radius: 10px;
 }
+
+.l {
+    left: 2px;
+    filter: hue-rotate(0deg);
+}
+
 footer {
     font-size: 20px;
     padding: 20px;
     background-color: #f5eef8;
     margin-top: 40px;
+    font-family: 'Poppins', sans-serif; /* Fuente estilizada para el footer también */
 }
-i, {
+
+i {
     font-size: 30px;
 }
+
 h1, h2, h3 {
     color: #4a235a;
     margin: 10px 0;
+    font-weight: 600; /* Negrita para los encabezados */
 }
+
 p {
-    font-family: cursive;
+    font-family: 'Poppins', sans-serif; /* Aseguramos que el párrafo tenga la misma fuente */
     font-size: 20px;
     color: #4a235a;
 }
 
-    .info{
+.info {
     font-size: 150%;
     text-align: left;
-    font-family: inherit;
-    text-align: left;
-    }
-    .a{
-    font-size: 30px; 
-      padding: 5px 15px; 
-      background-color:mediumpurple;
-      color: black; 
-      border: none; 
-      border-radius: 5px; 
-      text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.a {
+    font-size: 30px;
+    padding: 5px 15px;
+    background-color: mediumpurple;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
 }
 
 footer {
     text-align: initial;
     text-justify: justify;
 }
+
 .inicio, .arriba {
     margin-top: 10px;
     padding: 10px 15px;
@@ -70,6 +81,3 @@ footer {
 .arriba, .inicio {
     background-color: #884ea0;
 }
-
-
-   
