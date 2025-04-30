@@ -1,43 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="contacto.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto - N'C BOOKS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="contacto.css">
 </head>
 <body>
 
-        <img src="logo.png" alt="logo" class="l">
-        <img src="logo.png" alt="logo" class="ol">
-        <h1><strong>Contactos</strong></h1>
+  <h1><strong>Contactos</strong></h1>
 
-       <p>Direccion:<a href="https://www.google.com/maps/place/Dinamarca+23685,+22205+Tijuana,+B.C./@32.5006951,-116.8558172,19z/data=!3m1!4b1!4m6!3m5!1s0x80d93f052ef8ecab:0x937a56d21f5bb250!8m2!3d32.500694!4d-116.8551735!16s%2Fg%2F11c638vwr1?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoASAFQAw%3D%3D"> Dinamarca 23685, 22205 Tijuana, B.C. </a></p>
-              <p>Abierto de Lunes a Sabado</p>
-              <p>De 8am a 7pm</p>
-  <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
-    <i class="fab fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-    <i class="fab fa-tiktok"></i> </a></p>
-  <a href="+526647452150" target="_blank">
-    <i class="fab fa-whatsapp"></i> </a></p>
+  <img src="logo.png" alt="Logo izquierdo" class="l">
+  <img src="logo.png" alt="Logo derecho" class="ol">
 
-  <a href="index.html"><button class="inicio">Inicio🏠</button></a> 
-       <footer>
-    <p class="m">Contactos<br>
-      <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
-        <i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-        <i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/56666666666" target="_blank">
-        <i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:ncbooks25@gmail.com" target="_blank">
-        <i class="fas fa-envelope"></i></a>
+  <div class="contact-container">
+    <div class="contact-text">
+      <p><strong>Dirección:</strong> 
+        <a href="https://www.google.com.mx/maps/place/CECyTE+Plantel+Villa+del+Sol/@32.4970659,-116.8564596,17z/data=!3m1!4b1!4m6!3m5!1s0x80d9490615354b49:0xb2038c8a7c3e2a33!8m2!3d32.4970614!4d-116.8538847!16s%2Fg%2F1hdzt8lxp?entry=ttu&g_ep=EgoyMDI1MDQyNy4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+          Plantel Cecyte Villa Del Sol
+        </a>
+      </p>
+
+      <p><strong>Horario:</strong> Lunes a Sábado<br>De 8:00 AM a 7:00 PM</p>
+
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/nc_books25/" target="_blank" title="Instagram">
+          <i class="fab fa-instagram">Instagram</i>
+        </a>
+        <a href="https://www.tiktok.com/@nc_books25" target="_blank" title="TikTok">
+          <i class="fab fa-tiktok">TikTok</i>
+        </a>
+        <a href="https://wa.me/526647452150" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp">WhatsApp</i>
+        </a>
+        <a href="mailto:ncbooks25@gmail.com" target="_blank" title="Correo">
+          <i class="fas fa-envelope">Gmail</i>
+        </a>
+      </div>
+    </div>
+
+   <form id="contact-form" action="mailto:ncbooks25@gmail.com" method="post" enctype="text/plain">
+  <input type="text" name="nombre" placeholder="Tu nombre" required><br>
+  <input type="email" name="email" placeholder="Tu correo" required><br>
+  <textarea name="mensaje" placeholder="Tu mensaje" rows="5" required></textarea><br>
+  <button type="submit" class="inicio">Enviar</button>
+</form>
+
+
+  <a href="index.html">
+    <button class="inicio">Inicio 🏠</button>
+  </a>
+
+  <footer>
+    <p>
+      <a href="https://www.instagram.com/nc_books25/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@nc_books25" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/526647452150" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ncbooks25@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
     </p>
-    <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
-    N'C BOOKS.</p>
+    <p>&copy; 2025. Todos los derechos reservados. Nicole Casillas - N'C BOOKS.</p>
   </footer>
+
 </body>
 </html>
