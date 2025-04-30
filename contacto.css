@@ -9,11 +9,20 @@ p{
     text-align: center;
 inset-block: 09px;
 }
-.inicio{
- background: #c39bd3;
-      font-size:150%;
+.inicio, .arriba {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #a569bd;
+    color: white;
+    border: none;
+    border-radius: 6px;
     text-align: center;
 }
+
+.arriba, .inicio {
+    background-color: #884ea0;
+}
+
     
 .ig{
     width: 150px;
