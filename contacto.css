@@ -9,7 +9,12 @@ p{
     text-align: center;
 inset-block: 09px;
 }
-
+.inicio{
+ background: #c39bd3;
+      font-size:150%;
+    text-align: center;
+}
+    
 .ig{
     width: 150px;
     height: auto;
