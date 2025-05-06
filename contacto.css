@@ -35,7 +35,11 @@ a:hover {
   left: 10px;
   border-radius: 10px;
 }
-
+.nnn {
+  position: absolute;
+  top: 15px;
+  border-radius: 10px;
+}
 .ol {
   width: 130px;
   height: auto;
