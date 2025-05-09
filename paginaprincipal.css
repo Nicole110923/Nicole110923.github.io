@@ -1,14 +1,14 @@
 body {
-    background: #f3e5f5;
+    background: #f8f0fc;
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #6a1b9a;
+    color: #5e35b1;
 }
 
 h1 {
-    background-color: #8e24aa;
+    background-color: #7e57c2;
     color: white;
     padding: 20px;
     margin-bottom: 20px;
@@ -16,13 +16,13 @@ h1 {
 }
 
 h2, h3 {
-    color: #7b1fa2;
+    color: #6a1b9a;
     margin: 10px 0;
 }
 
 p {
     font-size: 1.1em;
-    color: #6a1b9a;
+    color: #5e35b1;
 }
 
 .logos {
@@ -44,7 +44,7 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #7b1fa2;
+    background-color: #9575cd;
     margin: 0;
 }
 
@@ -55,7 +55,7 @@ p {
     font-weight: bold;
     padding: 10px 15px;
     display: block;
-    background-color: #7b1fa2;
+    background-color: #9575cd;
     border: none;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -63,7 +63,7 @@ p {
 
 .menu a:hover,
 .menu button.enlace:hover {
-    background-color: #6a1b9a;
+    background-color: #7e57c2;
     border-radius: 5px;
 }
 
@@ -76,7 +76,7 @@ p {
 }
 
 .libro {
-    background-color: #ce93d8;
+    background-color: #e1bee7;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
@@ -101,7 +101,7 @@ p {
 .agregar-carrito,
 #boton-pagar,
 #boton-eliminar {
-    background-color: #8e24aa;
+    background-color: #ba68c8;
     color: white;
     border: none;
     border-radius: 6px;
@@ -114,19 +114,19 @@ p {
 .agregar-carrito:hover,
 #boton-pagar:hover,
 #boton-eliminar:hover {
-    background-color: #6a1b9a;
+    background-color: #ab47bc;
 }
 
 /* CARRITO */
 #carrito-container {
     background-color: #f3e5f5;
-    border: 2px solid #ce93d8;
+    border: 2px solid #d1c4e9;
     color: #6a1b9a;
     padding: 20px;
     width: 90%;
     max-width: 600px;
     margin: 20px auto;
-    display: none; /* Oculto por defecto */
+    display: none;
 }
 
 #carrito-container.activo {
@@ -135,7 +135,7 @@ p {
 
 /* FORMULARIO PAGO */
 #formulario-pago button[type="submit"] {
-    background-color: #6a1b9a;
+    background-color: #7b1fa2;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -144,7 +144,7 @@ p {
 }
 
 #formulario-pago button[type="submit"]:hover {
-    background-color: #4a148c;
+    background-color: #6a1b9a;
 }
 
 #formulario-pago input {
@@ -152,7 +152,7 @@ p {
     max-width: 300px;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ce93d8;
+    border: 1px solid #d1c4e9;
     border-radius: 4px;
 }
 
@@ -160,17 +160,18 @@ p {
 footer {
     font-size: 18px;
     padding: 20px;
-    background-color: #e1bee7;
+    background-color: #ede7f6;
     margin-top: 40px;
-    color: #6a1b9a;
+    color: #5e35b1;
 }
 
 footer i {
     font-size: 28px;
-    color: #8e24aa;
+    color: #7e57c2;
     margin: 0 8px;
 }
 
+/* RESPONSIVE */
 @media (max-width: 600px) {
     .logos {
         flex-direction: column;
