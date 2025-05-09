@@ -118,30 +118,31 @@
   </footer>
 
 <script src="carro.js"></script>
-  <script>
-
-document.getElementById("abrir-carrito").addEventListener("click", function (e) {
-  e.preventDefault();
+<script>
+document.addEventListener("DOMContentLoaded", function () {
   const carrito = document.getElementById("carrito-container");
-  carrito.classList.toggle("activo");
+  const botonVerCarrito = document.getElementById("abrir-carrito");
+
+  botonVerCarrito.addEventListener("click", function (e) {
+    e.preventDefault();
+    carrito.classList.toggle("activo");
+  });
+
+  document.getElementById("boton-pagar").addEventListener("click", function () {
+    const formulario = document.getElementById("formulario-pago");
+    formulario.style.display = formulario.style.display === "none" ? "block" : "none";
+  });
+
+  document.getElementById("pago-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("¡Pago realizado con éxito!");
+    this.reset();
+    document.getElementById("formulario-pago").style.display = "none";
+    carrito.classList.remove("activo");
+  });
 });
+</script>
 
-
- 
-    document.getElementById("boton-pagar").addEventListener("click", function () {
-      const formulario = document.getElementById("formulario-pago");
-      formulario.style.display = formulario.style.display === "none" ? "block" : "none";
-    });
-
-
-    document.getElementById("pago-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("¡Pago realizado con éxito!");
-      this.reset();
-      document.getElementById("formulario-pago").style.display = "none";
-      document.getElementById("carrito-container").classList.remove("activo");
-    });
-  </script>
 
   
 </body>
