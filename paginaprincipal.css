@@ -25,14 +25,21 @@ p {
     color: #33691e;
 }
 
-footer {
-    font-size: 18px;
-    padding: 20px;
-    background-color: #c8e6c9;
-    margin-top: 40px;
-    color: #1b5e20;
+/* LOGOS */
+.logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
 }
 
+.logo-izquierdo,
+.logo-derecho {
+    width: 100px;
+    height: auto;
+}
+
+/* MENÚ */
 .menu ul {
     list-style: none;
     padding: 0;
@@ -43,7 +50,8 @@ footer {
     margin: 0;
 }
 
-.menu a, .menu button.enlace {
+.menu a,
+.menu button.enlace {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -52,13 +60,16 @@ footer {
     background-color: #388e3c;
     border: none;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.menu a:hover, .menu button.enlace:hover {
+.menu a:hover,
+.menu button.enlace:hover {
     background-color: #2e7d32;
     border-radius: 5px;
 }
 
+/* CATÁLOGO */
 .catalogo {
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +100,10 @@ footer {
     object-fit: cover;
 }
 
-.agregar-carrito, #boton-pagar, #boton-eliminar {
+/* BOTONES */
+.agregar-carrito,
+#boton-pagar,
+#boton-eliminar {
     background-color: #388e3c;
     color: white;
     border: none;
@@ -100,18 +114,36 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-.agregar-carrito:hover, #boton-pagar:hover, #boton-eliminar:hover {
+.agregar-carrito:hover,
+#boton-pagar:hover,
+#boton-eliminar:hover {
     background-color: #2e7d32;
 }
 
+/* CARRITO */
 #carrito-container {
     background-color: #f1f8e9;
     border: 2px solid #a5d6a7;
     color: #1b5e20;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: none; /* Oculto por defecto */
 }
 
+#carrito-container.activo {
+    display: block;
+}
+
+/* FORMULARIO PAGO */
 #formulario-pago button[type="submit"] {
     background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 #formulario-pago button[type="submit"]:hover {
@@ -119,16 +151,47 @@ footer {
 }
 
 #formulario-pago input {
+    width: 90%;
+    max-width: 300px;
+    padding: 8px;
+    margin-top: 5px;
     border: 1px solid #a5d6a7;
+    border-radius: 4px;
+}
+
+/* FOOTER */
+footer {
+    font-size: 18px;
+    padding: 20px;
+    background-color: #c8e6c9;
+    margin-top: 40px;
+    color: #1b5e20;
 }
 
 footer i {
     font-size: 28px;
     color: #2e7d32;
-    margin: 0 5px;
+    margin: 0 8px;
 }
 
-.ol, .l {
-    width: 120px;
-    border-radius: 10px;
+
+@media (max-width: 600px) {
+    .logos {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .catalogo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .libro {
+        width: 90%;
+    }
 }
