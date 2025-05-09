@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,135 +14,82 @@
   <img src="logo.png" alt="logo derecho" class="logo-derecho">
 </div>
 
-  <h1>✨Refugio en las palabras✨<br>✨Libertad en las historias✨</h1>
-    
- 
-  <div id="carrito-container">
-    <h2>🛒 Carrito de Compras</h2>
-    <ul id="carrito-lista"></ul>
-    <p id="total">Total: $0</p>
-    <button id="boton-pagar" class="n">Pagar</button>
+<h1>✨Refugio en las palabras✨<br>✨Libertad en las historias✨</h1>
 
-    <div id="formulario-pago" style="display: none; margin-top: 10px;">
-      <h3>Detalles de Pago</h3>
-      <form id="pago-form">
-        <label>
-          Nombre completo:<br>
-          <input type="text" name="nombre" required />
-        </label><br><br>
-        <label>
-          Dirección:<br>
-          <input type="text" name="direccion" required />
-        </label><br><br>
-        <label>
-          Teléfono:<br>
-          <input type="tel" name="telefono" required />
-        </label><br><br>
-        <label>
-          Número de tarjeta:<br>
-          <input type="text" name="tarjeta" required maxlength="16" />
-        </label><br><br>
-        <button type="submit">Confirmar pago</button>
-      </form>
-    </div>
-  </div>
+<!-- Carrito oculto ya que se usa en otra página -->
+<div id="carrito-container" style="display: none;"></div>
+
 <nav class="menu">
   <ul>
     <li><a class="enlace" href="informacion.html">Información</a></li>
     <li><a class="enlace" href="categoria.html">Catálogo</a></li>
     <li><a class="enlace" href="contacto.html">Contacto</a></li>
-    <li><button id="abrir-carrito" class="enlace">🛒 Ver Carrito</button></li>
+    <li><a class="enlace" href="carritodecompras.html">🛒 Ver Carrito</a></li>
   </ul>
 </nav>
 
-  <main>
-    <h2>🛒 Productos Más Vendidos 🛒</h2>
-    <section class="catalogo">
+<main>
+  <h2>🛒 Productos Más Vendidos 🛒</h2>
+  <section class="catalogo">
 
-      <div class="libro">
-        <a href="oyp.html">
-          <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio">
-        </a>
-        <div class="info-libro">
-          <h3>Orgullo y Prejuicio</h3>
-          <p><strong>Autor:</strong> Jane Austen</p>
-          <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Costumbrismo</p>
-          <p><strong>Precio:</strong> $299</p>
-          <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
-        </div>
+    <div class="libro">
+      <a href="oyp.html">
+        <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio">
+      </a>
+      <div class="info-libro">
+        <h3>Orgullo y Prejuicio</h3>
+        <p><strong>Autor:</strong> Jane Austen</p>
+        <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Costumbrismo</p>
+        <p><strong>Precio:</strong> $299</p>
+        <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
       </div>
+    </div>
 
-      <div class="libro">
-        <a href="dd.html">
-          <img src="dd.png" class="imagen-libro" alt="Después de Diciembre">
-        </a>
-        <div class="info-libro">
-          <h3>Después de Diciembre</h3>
-          <p><strong>Autor:</strong> Joana Marcus</p>
-          <p><strong>Género:</strong> Romance, Literatura Juvenil, Drama</p>
-          <p><strong>Precio:</strong> $329</p>
-          <button class="agregar-carrito" data-nombre="Después de Diciembre" data-precio="329">Agregar al carrito</button>
-        </div>
+    <div class="libro">
+      <a href="dd.html">
+        <img src="dd.png" class="imagen-libro" alt="Después de Diciembre">
+      </a>
+      <div class="info-libro">
+        <h3>Después de Diciembre</h3>
+        <p><strong>Autor:</strong> Joana Marcus</p>
+        <p><strong>Género:</strong> Romance, Literatura Juvenil, Drama</p>
+        <p><strong>Precio:</strong> $329</p>
+        <button class="agregar-carrito" data-nombre="Después de Diciembre" data-precio="329">Agregar al carrito</button>
       </div>
+    </div>
 
-      <div class="libro">
-        <a href="b2.html">
-          <img src="brujas2.png" class="imagen-libro" alt="Asesino de Brujas 2">
-        </a>
-        <div class="info-libro">
-          <h3>Asesino de Brujas 2</h3>
-          <p><strong>Autor:</strong> Shelby Mahurin</p>
-          <p><strong>Género:</strong> Fantasía, Aventura</p>
-          <p><strong>Precio:</strong> $499</p>
-          <button class="agregar-carrito" data-nombre="Asesino de Brujas 2" data-precio="499">Agregar al carrito</button>
-        </div>
+    <div class="libro">
+      <a href="b2.html">
+        <img src="brujas2.png" class="imagen-libro" alt="Asesino de Brujas 2">
+      </a>
+      <div class="info-libro">
+        <h3>Asesino de Brujas 2</h3>
+        <p><strong>Autor:</strong> Shelby Mahurin</p>
+        <p><strong>Género:</strong> Fantasía, Aventura</p>
+        <p><strong>Precio:</strong> $499</p>
+        <button class="agregar-carrito" data-nombre="Asesino de Brujas 2" data-precio="499">Agregar al carrito</button>
       </div>
+    </div>
 
-    </section>
-  </main>
+  </section>
+</main>
 
-  <footer>
-    <p class="m">Contactos<br>
-      <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
-        <i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-        <i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/56666666666" target="_blank">
-        <i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:ncbooks25@gmail.com" target="_blank">
-        <i class="fas fa-envelope"></i></a>
-    </p>
-    <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
-    N'C BOOKS.</p>
-  </footer>
+<footer>
+  <p class="m">Contactos<br>
+    <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
+      <i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/56666666666" target="_blank">
+      <i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:ncbooks25@gmail.com" target="_blank">
+      <i class="fas fa-envelope"></i></a>
+  </p>
+  <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
+  N'C BOOKS.</p>
+</footer>
 
 <script src="carro.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const carrito = document.getElementById("carrito-container");
-  const botonVerCarrito = document.getElementById("abrir-carrito");
 
-  botonVerCarrito.addEventListener("click", function (e) {
-    e.preventDefault();
-    carrito.classList.toggle("activo");
-  });
-
-  document.getElementById("boton-pagar").addEventListener("click", function () {
-    const formulario = document.getElementById("formulario-pago");
-    formulario.style.display = formulario.style.display === "none" ? "block" : "none";
-  });
-
-  document.getElementById("pago-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    alert("¡Pago realizado con éxito!");
-    this.reset();
-    document.getElementById("formulario-pago").style.display = "none";
-    carrito.classList.remove("activo");
-  });
-});
-</script>
-
-
-  
 </body>
 </html>
