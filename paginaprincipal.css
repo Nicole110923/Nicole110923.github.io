@@ -1,14 +1,14 @@
 body {
-    background: #e8f5e9;
+    background: #f3e5f5;
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #1b5e20;
+    color: #6a1b9a;
 }
 
 h1 {
-    background-color: #66bb6a;
+    background-color: #8e24aa;
     color: white;
     padding: 20px;
     margin-bottom: 20px;
@@ -16,15 +16,14 @@ h1 {
 }
 
 h2, h3 {
-    color: #2e7d32;
+    color: #7b1fa2;
     margin: 10px 0;
 }
 
 p {
     font-size: 1.1em;
-    color: #33691e;
+    color: #6a1b9a;
 }
-
 
 .logos {
     display: flex;
@@ -39,14 +38,13 @@ p {
     height: auto;
 }
 
-
 .menu ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #388e3c;
+    background-color: #7b1fa2;
     margin: 0;
 }
 
@@ -57,7 +55,7 @@ p {
     font-weight: bold;
     padding: 10px 15px;
     display: block;
-    background-color: #388e3c;
+    background-color: #7b1fa2;
     border: none;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -65,10 +63,9 @@ p {
 
 .menu a:hover,
 .menu button.enlace:hover {
-    background-color: #2e7d32;
+    background-color: #6a1b9a;
     border-radius: 5px;
 }
-
 
 .catalogo {
     display: flex;
@@ -79,7 +76,7 @@ p {
 }
 
 .libro {
-    background-color: #a5d6a7;
+    background-color: #ce93d8;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
@@ -104,7 +101,7 @@ p {
 .agregar-carrito,
 #boton-pagar,
 #boton-eliminar {
-    background-color: #388e3c;
+    background-color: #8e24aa;
     color: white;
     border: none;
     border-radius: 6px;
@@ -117,14 +114,14 @@ p {
 .agregar-carrito:hover,
 #boton-pagar:hover,
 #boton-eliminar:hover {
-    background-color: #2e7d32;
+    background-color: #6a1b9a;
 }
 
 /* CARRITO */
 #carrito-container {
-    background-color: #f1f8e9;
-    border: 2px solid #a5d6a7;
-    color: #1b5e20;
+    background-color: #f3e5f5;
+    border: 2px solid #ce93d8;
+    color: #6a1b9a;
     padding: 20px;
     width: 90%;
     max-width: 600px;
@@ -138,7 +135,7 @@ p {
 
 /* FORMULARIO PAGO */
 #formulario-pago button[type="submit"] {
-    background-color: #2e7d32;
+    background-color: #6a1b9a;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -147,7 +144,7 @@ p {
 }
 
 #formulario-pago button[type="submit"]:hover {
-    background-color: #1b5e20;
+    background-color: #4a148c;
 }
 
 #formulario-pago input {
@@ -155,7 +152,7 @@ p {
     max-width: 300px;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #a5d6a7;
+    border: 1px solid #ce93d8;
     border-radius: 4px;
 }
 
@@ -163,17 +160,16 @@ p {
 footer {
     font-size: 18px;
     padding: 20px;
-    background-color: #c8e6c9;
+    background-color: #e1bee7;
     margin-top: 40px;
-    color: #1b5e20;
+    color: #6a1b9a;
 }
 
 footer i {
     font-size: 28px;
-    color: #2e7d32;
+    color: #8e24aa;
     margin: 0 8px;
 }
-
 
 @media (max-width: 600px) {
     .logos {
