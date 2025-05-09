@@ -1,25 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="carritodecompras.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras | N'C BOOKS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f8fff8;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .item img {
+      width: 100px;
+      height: auto;
+      margin-right: 15px;
+    }
+    .item-info {
+      flex: 1;
+    }
+    .total {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    #formulario-pago {
+      display: none;
+      margin-top: 20px;
+    }
+    form input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 6px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>🛍️ Tu Carrito de Compras</h1>
-    </header>
+  <h1>🛒 Carrito de Compras</h1>
+  <div id="carrito-contenido"></div>
+  <p class="total" id="total">Total: $0</p>
+  <button onclick="mostrarFormulario()">Pagar</button>
+  <button onclick="vaciarCarrito()">Vaciar carrito</button>
 
-    <main class="carrito-container">
+  <div id="formulario-pago">
+    <h2>Detalles de Pago</h2>
+    <form id="pago-form">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="text" name="direccion" placeholder="Dirección" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <input type="text" name="tarjeta" placeholder="Número de tarjeta" maxlength="16" required>
+      <button type="submit">Confirmar pago</button>
+    </form>
+  </div>
 
-        <div class="item-carrito">
-            <img src="oyp.png" alt="Orgullo y Prejuicio">
-            <div class="detalle">
-                <h2>Orgullo y Prejuicio</h2>
-                <p>Precio: $299</p>
-                <label>Cantidad:
-                    <input type="number" value="1" min="1">
-                </label>
-                <button class="eliminar">Eliminar</button>
-            </div>
+  <script>
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const contenedor = document.getElementById('carrito-contenido');
+    const totalTexto = document.getElementById('total');
+
+    function renderCarrito() {
+      contenedor.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.nombre}">
+          <div class="item-info">
+            <strong>${item.nombre}</strong><br>
+            $${item.precio} x ${item.cantidad}
+          </div>
+          <button onclick="eliminarItem(${index})">Eliminar</button>
+        `;
+        contenedor.appendChild(div);
+        total += item.precio * item.cantidad;
+      });
+
+      totalTexto.textContent = `Total: $${total}`;
+    }
+
+    function eliminarItem(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      renderCarrito();
+    }
+
+    function vaciarCarrito() {
+      if (confirm('¿Vaciar el carrito?')) {
+        carrito = [];
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        renderCarrito();
+      }
+    }
+
+    function mostrarFormulario() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+      document.getElementById('formulario-pago').style.display = 'block';
+    }
+
+    document.getElementById('pago-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nombre = this.nombre.value;
+      const direccion = this.direccion.value;
+      const telefono = this.telefono.value;
+      const tarjeta = this.tarjeta.value;
+
+      alert(`¡Gracias por tu compra, ${nombre}!\nEnviaremos tu pedido a:\n${direccion}\nNos comunicaremos al: ${telefono}`);
+
+      carrito = [];
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      renderCarrito();
+      document.getElementById('formulario-pago').style.display = 'none';
+      this.reset();
+    });
+
+    renderCarrito();
+  </script>
+
+</body>
+</html>
