@@ -4,53 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de Compras | N'C BOOKS</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f8fff8;
-    }
-    h1 {
-      color: #2e7d32;
-    }
-    .item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-    .item img {
-      width: 100px;
-      height: auto;
-      margin-right: 15px;
-    }
-    .item-info {
-      flex: 1;
-    }
-    .total {
-      font-size: 20px;
-      margin-top: 20px;
-    }
-    button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    #formulario-pago {
-      display: none;
-      margin-top: 20px;
-    }
-    form input {
-      display: block;
-      margin-bottom: 10px;
-      padding: 6px;
-      width: 100%;
-    }
-  </style>
+  <link rel="stylesheet" href="carrito.css">
 </head>
 <body>
 
@@ -59,6 +13,7 @@
   <p class="total" id="total">Total: $0</p>
   <button onclick="mostrarFormulario()">Pagar</button>
   <button onclick="vaciarCarrito()">Vaciar carrito</button>
+  <a href="index.html"><button>Volver al catálogo</button></a>
 
   <div id="formulario-pago">
     <h2>Detalles de Pago</h2>
@@ -125,7 +80,6 @@
       const nombre = this.nombre.value;
       const direccion = this.direccion.value;
       const telefono = this.telefono.value;
-      const tarjeta = this.tarjeta.value;
 
       alert(`¡Gracias por tu compra, ${nombre}!\nEnviaremos tu pedido a:\n${direccion}\nNos comunicaremos al: ${telefono}`);
 
