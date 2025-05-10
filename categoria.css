@@ -117,6 +117,24 @@ a:hover {
   background-color: #6a0dad;
 }
 
+#carrito-flotante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #884ea0;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#carrito-flotante:hover {
+  transform: scale(1.1);
+}
 #carrito-container {
   text-align: left;
   position: fixed;
