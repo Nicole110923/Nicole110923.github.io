@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="carritodecompras.css">
 </head>
 <body>
- <img src="logo.png" alt="logo" class="l" />
+  <img src="logo.png" alt="logo" class="l" />
   <h1>🛒 Carrito de Compras</h1>
   <div id="carrito-contenido"></div>
   <p class="total" id="total">Total: $0</p>
@@ -16,7 +16,7 @@
   <a href="categoria.html"><button>Volver al catálogo</button></a>
   <a href="index.html"><button>Volver al inicio</button></a>
 
-  <div id="formulario-pago">
+  <div id="formulario-pago" style="display:none;">
     <h2>Detalles de Pago</h2>
     <form id="pago-form">
       <input type="text" name="nombre" placeholder="Nombre completo" required>
@@ -40,9 +40,9 @@
         const div = document.createElement('div');
         div.className = 'item';
         div.innerHTML = `
-          <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.nombre}">
+          <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.titulo}">
           <div class="item-info">
-            <strong>${item.nombre}</strong><br>
+            <strong>${item.titulo}</strong><br>
             $${item.precio} x ${item.cantidad}
           </div>
           <button onclick="eliminarItem(${index})">Eliminar</button>
