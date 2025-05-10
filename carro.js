@@ -46,35 +46,33 @@ function actualizarCarrito() {
   totalTexto.textContent = `Total: $${total}`;
 }
 
-// Agregar al carrito desde botones en index.html
+// Agregar al carrito desde botones en index.html y categoria.html
 document.addEventListener('DOMContentLoaded', () => {
   actualizarContador();
   actualizarCarrito(); // Si estamos en carritodecompras.html
 
-  const botones = document.querySelectorAll('button');
+  const botones = document.querySelectorAll('.agregar-carrito');
 
   botones.forEach(boton => {
-    if (boton.textContent.includes('Agregar al carrito')) {
-      boton.addEventListener('click', () => {
-        const libro = boton.closest('.libro');
-        const titulo = libro.querySelector('h3').textContent;
-        const precioTexto = libro.querySelector('.precio').textContent.replace('$', '');
-        const precio = parseFloat(precioTexto);
-        const imagen = libro.querySelector('img').getAttribute('src');
+    boton.addEventListener('click', () => {
+      const libro = boton.closest('.libro');
+      const titulo = libro.querySelector('.info-libro h2').textContent; // Corregir acceso al nombre
+      const precioTexto = libro.querySelector('.info-libro p:last-of-type').textContent.replace('$', '');
+      const precio = parseFloat(precioTexto);
+      const imagen = libro.querySelector('img').getAttribute('src');
 
-        const producto = { titulo, precio, imagen, cantidad: 1 };
+      const producto = { titulo, precio, imagen, cantidad: 1 };
 
-        const indice = carrito.findIndex(p => p.titulo === producto.titulo);
-        if (indice >= 0) {
-          carrito[indice].cantidad++;
-        } else {
-          carrito.push(producto);
-        }
+      const indice = carrito.findIndex(p => p.titulo === producto.titulo);
+      if (indice >= 0) {
+        carrito[indice].cantidad++;
+      } else {
+        carrito.push(producto);
+      }
 
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        actualizarContador();
-      });
-    }
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarContador();
+    });
   });
 });
 
