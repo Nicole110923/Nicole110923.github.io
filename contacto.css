@@ -37,8 +37,10 @@ a:hover {
 }
 .nnn {
   position: absolute;
-  top: 15px;
-  border-radius: 10px;
+  top: 10px;
+  border-radius: 6px;
+    width: 130px;
+  height: auto;
 }
 .ol {
   width: 130px;
