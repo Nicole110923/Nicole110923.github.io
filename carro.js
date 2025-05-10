@@ -79,3 +79,45 @@ formulario.addEventListener('submit', (e) => {
   formularioPago.style.display = 'none';
   formulario.reset();
 });
+// Inicializar carrito
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+actualizarContador();
+
+// Escuchar clicks en los botones "Agregar al carrito"
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll("button");
+
+  botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const libro = boton.closest(".libro");
+      const titulo = libro.querySelector("h3").textContent;
+      const precio = libro.querySelector(".precio").textContent;
+      const imagen = libro.querySelector("img").getAttribute("src");
+
+      const producto = {
+        titulo,
+        precio,
+        imagen,
+        cantidad: 1,
+      };
+
+      // Si ya está en el carrito, aumentar cantidad
+      const indice = carrito.findIndex(p => p.titulo === producto.titulo);
+      if (indice >= 0) {
+        carrito[indice].cantidad++;
+      } else {
+        carrito.push(producto);
+      }
+
+      // Guardar en localStorage
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      actualizarContador();
+    });
+  });
+});
+
+function actualizarContador() {
+  const contador = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+  document.getElementById("contador-carrito").textContent = contador;
+}
+
