@@ -28,21 +28,24 @@
   </div>
 
   <script>
+    // Obtener el carrito de localStorage
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const contenedor = document.getElementById('carrito-contenido');
     const totalTexto = document.getElementById('total');
 
+    // Función para renderizar los productos en el carrito
     function renderCarrito() {
-      contenedor.innerHTML = '';
+      contenedor.innerHTML = ''; // Limpiar contenido previo
       let total = 0;
 
+      // Recorrer el carrito y mostrar los productos
       carrito.forEach((item, index) => {
         const div = document.createElement('div');
         div.className = 'item';
         div.innerHTML = `
-          <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.titulo}">
+          <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.nombre}">
           <div class="item-info">
-            <strong>${item.titulo}</strong><br>
+            <strong>${item.nombre}</strong><br>
             $${item.precio} x ${item.cantidad}
           </div>
           <button onclick="eliminarItem(${index})">Eliminar</button>
@@ -51,23 +54,27 @@
         total += item.precio * item.cantidad;
       });
 
+      // Mostrar el total del carrito
       totalTexto.textContent = `Total: $${total}`;
     }
 
+    // Función para eliminar un producto del carrito
     function eliminarItem(index) {
-      carrito.splice(index, 1);
-      localStorage.setItem('carrito', JSON.stringify(carrito));
-      renderCarrito();
+      carrito.splice(index, 1); // Eliminar el producto del carrito
+      localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar localStorage
+      renderCarrito(); // Volver a renderizar el carrito
     }
 
+    // Función para vaciar el carrito
     function vaciarCarrito() {
       if (confirm('¿Vaciar el carrito?')) {
-        carrito = [];
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        renderCarrito();
+        carrito = []; // Limpiar carrito
+        localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar localStorage
+        renderCarrito(); // Volver a renderizar el carrito
       }
     }
 
+    // Mostrar formulario de pago
     function mostrarFormulario() {
       if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
@@ -76,6 +83,10 @@
       document.getElementById('formulario-pago').style.display = 'block';
     }
 
+    // Llamar la función de renderizado cuando cargue la página
+    renderCarrito();
+
+    // Manejar el envío del formulario de pago
     document.getElementById('pago-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const nombre = this.nombre.value;
@@ -84,15 +95,13 @@
 
       alert(`¡Gracias por tu compra, ${nombre}!\nEnviaremos tu pedido a:\n${direccion}\nNos comunicaremos al: ${telefono}`);
 
+      // Vaciar el carrito después de la compra
       carrito = [];
-      localStorage.setItem('carrito', JSON.stringify(carrito));
-      renderCarrito();
-      document.getElementById('formulario-pago').style.display = 'none';
-      this.reset();
+      localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar localStorage
+      renderCarrito(); // Volver a renderizar el carrito
+      document.getElementById('formulario-pago').style.display = 'none'; // Ocultar formulario
+      this.reset(); // Resetear el formulario
     });
-
-    renderCarrito();
   </script>
-  <script src="carro.js"></script>
 </body>
 </html>
