@@ -55,23 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   botones.forEach(boton => {
     boton.addEventListener('click', () => {
-      const libro = boton.closest('.libro');
-      const titulo = libro.querySelector('.info-libro h2').textContent; // Corregir acceso al nombre
-      const precioTexto = libro.querySelector('.info-libro p:last-of-type').textContent.replace('$', '');
+      const libro = boton.closest('.libro'); // Encontrar el contenedor más cercano
+      const titulo = libro.querySelector('h3').textContent; // Obtener el título del libro
+      const precioTexto = libro.querySelector('.precio').textContent.replace('$', ''); // Obtener el precio
       const precio = parseFloat(precioTexto);
-      const imagen = libro.querySelector('img').getAttribute('src');
+      const imagen = libro.querySelector('img').getAttribute('src'); // Obtener la imagen del libro
 
       const producto = { titulo, precio, imagen, cantidad: 1 };
 
+      // Verificar si el libro ya está en el carrito
       const indice = carrito.findIndex(p => p.titulo === producto.titulo);
       if (indice >= 0) {
-        carrito[indice].cantidad++;
+        carrito[indice].cantidad++; // Aumentar la cantidad si el libro ya está en el carrito
       } else {
-        carrito.push(producto);
+        carrito.push(producto); // Agregar un nuevo producto al carrito
       }
 
-      localStorage.setItem('carrito', JSON.stringify(carrito));
-      actualizarContador();
+      localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar el carrito en LocalStorage
+      actualizarContador(); // Actualizar el contador del carrito
     });
   });
 });
@@ -94,8 +95,8 @@ if (botonPagar && formularioPago && formulario) {
 
     alert(`Gracias por tu compra, ${nombre}!\nTu pedido será enviado a:\n${direccion}\nNos comunicaremos al: ${telefono}`);
 
-    carrito = [];
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    carrito = []; // Vaciar el carrito después de la compra
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en LocalStorage
     actualizarCarrito();
     actualizarContador();
     formularioPago.style.display = 'none';
