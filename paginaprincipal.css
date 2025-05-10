@@ -1,3 +1,4 @@
+/* Generales */
 body {
     background: #f8f0fc;
     font-family: 'Lato', sans-serif;
@@ -8,11 +9,10 @@ body {
 }
 
 h1 {
+    font-size: 2em;
     background-color: #7e57c2;
     color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 2em;
+    margin: 0;
 }
 
 h2, h3 {
@@ -25,18 +25,30 @@ p {
     color: #5e35b1;
 }
 
-.logos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
+/* Encabezado y menús */
+header {
+    background-color: #9575cd;
+    padding: 20px 0;
+    position: relative;
 }
 
-.logo-izquierdo,
-.logo-derecho {
-    width: 100px;
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.logo-izquierdo, .logo-derecho {
+    width: 150px;
     height: auto;
-     max-width: 100%;
+}
+
+.eslogan {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #fff;
 }
 
 .menu ul {
@@ -45,29 +57,25 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #9575cd;
+    background-color: #7e57c2;
     margin: 0;
 }
 
-.menu a,
-.menu button.enlace {
+.menu a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     padding: 10px 15px;
     display: block;
-    background-color: #9575cd;
-    border: none;
     transition: background-color 0.3s ease;
-    cursor: pointer;
 }
 
-.menu a:hover,
-.menu button.enlace:hover {
-    background-color: #7e57c2;
+.menu a:hover {
+    background-color: #6a1b9a;
     border-radius: 5px;
 }
 
+/* Estilo catálogo */
 .catalogo {
     display: flex;
     flex-wrap: wrap;
@@ -98,7 +106,7 @@ p {
     object-fit: cover;
 }
 
-/* BOTONES */
+/* Botones */
 .agregar-carrito,
 #boton-pagar,
 #boton-eliminar {
@@ -118,46 +126,7 @@ p {
     background-color: #ab47bc;
 }
 
-/* CARRITO */
-#carrito-container {
-    background-color: #f3e5f5;
-    border: 2px solid #d1c4e9;
-    color: #6a1b9a;
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    display: none;
-}
-
-#carrito-container.activo {
-    display: block;
-}
-
-/* FORMULARIO PAGO */
-#formulario-pago button[type="submit"] {
-    background-color: #7b1fa2;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#formulario-pago button[type="submit"]:hover {
-    background-color: #6a1b9a;
-}
-
-#formulario-pago input {
-    width: 90%;
-    max-width: 300px;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #d1c4e9;
-    border-radius: 4px;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
     font-size: 18px;
     padding: 20px;
@@ -172,7 +141,7 @@ footer i {
     margin: 0 8px;
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 600px) {
     .logos {
         flex-direction: column;
