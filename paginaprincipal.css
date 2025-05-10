@@ -34,9 +34,9 @@ p {
 
 .logo-izquierdo,
 .logo-derecho {
-    width: 100px;
+    width: 140px; /* Tamaño aumentado */
     height: auto;
-     max-width: 100%;
+    max-width: 100%;
 }
 
 .menu ul {
@@ -177,6 +177,11 @@ footer i {
     .logos {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .logo-izquierdo,
+    .logo-derecho {
+        width: 120px; /* Tamaño móvil más grande que antes */
     }
 
     .menu ul {
