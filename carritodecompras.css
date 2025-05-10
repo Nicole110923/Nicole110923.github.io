@@ -8,6 +8,14 @@ body {
   color: #4a148c;
   text-align: left;
 }
+.l{
+    width: 120px;
+    height: auto;
+    position: absolute;
+    left:2px;
+    filter: hue-rotate(0deg);
+    border-radius: 10px;
+}
 
 h1 {
   color: #6a1b9a;
