@@ -109,20 +109,21 @@ input, textarea {
   font-size: 1em;
 }
 
-/* Footer */
 footer {
-  font-size: 1.1em;
+  background-color: #e6d4ff;
+  text-align: center;
   padding: 20px;
-  background-color: #f5eef8;
-  color: #4a235a;
-  margin-top: 40px;
+  font-size: 0.9em;
+  color: #4b0082;
 }
 
-footer a {
+.redes a {
   margin: 0 10px;
-  color: #4a235a;
+  font-size: 1.5em;
+  color: #6a0dad;
+  transition: color 0.3s;
 }
 
-footer a:hover {
-  color: #311b39;
+.redes a:hover {
+  color: #4b0082;
 }
