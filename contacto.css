@@ -36,11 +36,11 @@ a:hover {
   border-radius: 10px;
 }
 .nnn {
-  position: absolute;
   top: 10px;
   border-radius: 6px;
-    width: 130px;
+  width: 100px;
   height: auto;
+  riht:10px;
 }
 .ol {
   width: 130px;
