@@ -4,81 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo de Libros</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="categoria.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="categoria.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <img src="logo.png" alt="logo" class="l" />
   <img src="logo.png" alt="logo" class="ol" />
   <h1>Catálogo de Libros<br>Libros de todos y con todo</h1>
 
-<div id="carrito-container">
-  <h2>🛒 Carrito de Compras</h2>
-  <ul id="carrito-lista"></ul>
-  <p id="total">Total: $0</p>
-
-
-  <button id="boton-pagar" class="n">Pagar</button>
-  <div id="formulario-pago" style="display: none; margin-top: 10px;">
-    <h3>Detalles de Pago</h3>
-    <form id="pago-form">
-      <label>
-        Nombre completo:<br>
-        <input type="text" name="nombre" required />
-      </label><br><br>
-      <label>
-        Dirección:<br>
-        <input type="text" name="direccion" required />
-      </label><br><br>
-      <label>
-        Teléfono:<br>
-        <input type="tel" name="telefono" required />
-      </label><br><br>
-      <label>
-        Número de tarjeta:<br>
-        <input type="text" name="tarjeta" required maxlength="16" />
-      </label><br><br>
-      <button type="submit">Confirmar pago</button>
-    </form>
+  <div id="carrito-container">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="carrito-lista"></ul>
+    <p id="total">Total: $0</p>
+    <button id="boton-pagar" class="n">Pagar</button>
+    <div id="formulario-pago" style="display: none; margin-top: 10px;">
+      <h3>Detalles de Pago</h3>
+      <form id="pago-form">
+        <label>Nombre completo:<br><input type="text" name="nombre" required /></label><br><br>
+        <label>Dirección:<br><input type="text" name="direccion" required /></label><br><br>
+        <label>Teléfono:<br><input type="tel" name="telefono" required /></label><br><br>
+        <label>Número de tarjeta:<br><input type="text" name="tarjeta" required maxlength="16" /></label><br><br>
+        <button type="submit">Confirmar pago</button>
+      </form>
+    </div>
   </div>
-</div>
-<a href="oyp.html">
- <div class="catalogo">
-        <div class="libro">
-      <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio">
-      <div class="info-libro">
-        <h2>Orgullo y Prejuicio</h2>
-        <p><strong>Autor:</strong> Jane Austen</p>
-        <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Novela costumbrista.</p>
-        <p><strong>Precio:</strong> $299</p></a>
-        <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
-      </div>
-    </div>
-<a href="sys.html">
+
+  <div class="catalogo">
     <div class="libro">
-      <img src="sys.png" class="imagen-libro" alt="Sentido y Sensibilidad">
-      <div class="info-libro">
-        <h2>Sentido y Sensibilidad</h2>
-        <p><strong>Autor:</strong> Jane Austen</p>
-        <p><strong>Género:</strong> Novela romántica, Ficción, Drama</p>
-        <p><strong>Precio:</strong> $289</p></a>
-        <button class="agregar-carrito" data-nombre="Sentido y Sensibilidad" data-precio="289">Agregar al carrito</button>
-      </div>
+      <a href="oyp.html">
+        <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio" />
+        <div class="info-libro">
+          <h2>Orgullo y Prejuicio</h2>
+          <p><strong>Autor:</strong> Jane Austen</p>
+          <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Novela costumbrista.</p>
+          <p><strong>Precio:</strong> $299</p>
+        </div>
+      </a>
+      <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
     </div>
-<a href="e.html">
+
     <div class="libro">
-      <img src="e.png" class="imagen-libro" alt="Emma">
-      <div class="info-libro">
-        <h2>Emma</h2>
-        <p><strong>Autor:</strong> Jane Austen</p>
-        <p><strong>Género:</strong> Romance, Comedia, Novela de costumbres</p>
-        <p><strong>Precio:</strong> $329</p></a>
-        <button class="agregar-carrito" data-nombre="Emma" data-precio="329">Agregar al carrito</button>
-      </div>
+      <a href="sys.html">
+        <img src="sys.png" class="imagen-libro" alt="Sentido y Sensibilidad" />
+        <div class="info-libro">
+          <h2>Sentido y Sensibilidad</h2>
+          <p><strong>Autor:</strong> Jane Austen</p>
+          <p><strong>Género:</strong> Novela romántica, Ficción, Drama</p>
+          <p><strong>Precio:</strong> $289</p>
+        </div>
+      </a>
+      <button class="agregar-carrito" data-nombre="Sentido y Sensibilidad" data-precio="289">Agregar al carrito</button>
+    </div>
+
+    <div class="libro">
+      <a href="eyp.html">
+        <img src="eyp.png" class="imagen-libro" alt="Emma" />
+        <div class="info-libro">
+          <h2>Emma</h2>
+          <p><strong>Autor:</strong> Jane Austen</p>
+          <p><strong>Género:</strong> Novela romántica, Comedia, Sátira</p>
+          <p><strong>Precio:</strong> $270</p>
+        </div>
+      </a>
+      <button class="agregar-carrito" data-nombre="Emma" data-precio="270">Agregar al carrito</button>
     </div>
 <a href="p.html">
     <div class="libro">
