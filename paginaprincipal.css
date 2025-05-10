@@ -36,6 +36,7 @@ p {
 .logo-derecho {
     width: 100px;
     height: auto;
+     max-width: 100%;
 }
 
 .menu ul {
