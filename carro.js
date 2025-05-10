@@ -4,8 +4,11 @@ const contadorCarrito = document.getElementById('contador-carrito');
 
 function actualizarContador() {
   if (contadorCarrito) {
-    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    contadorCarrito.textContent = totalItems;
+    let total = 0;
+    carrito.forEach(item => {
+      total += item.cantidad;
+    });
+    contadorCarrito.textContent = total;
   }
 }
 
@@ -17,18 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
   botones.forEach(boton => {
     boton.addEventListener('click', () => {
       const libro = boton.closest('.libro');
-      const titulo = libro.querySelector('h3').textContent;
-      const precioTexto = libro.querySelector('p:last-child').textContent.replace('$', '');
+      const titulo = libro.querySelector('h3').textContent.trim();
+      const precioTexto = libro.querySelector('p.precio').textContent.replace('$', '').trim();
       const precio = parseFloat(precioTexto);
       const imagen = libro.querySelector('img').getAttribute('src');
 
-      const producto = { titulo, precio, imagen, cantidad: 1 };
+      const productoExistente = carrito.find(p => p.titulo === titulo);
 
-      const indice = carrito.findIndex(p => p.titulo === producto.titulo);
-      if (indice >= 0) {
-        carrito[indice].cantidad++;
+      if (productoExistente) {
+        productoExistente.cantidad += 1;
       } else {
-        carrito.push(producto);
+        carrito.push({ titulo, precio, imagen, cantidad: 1 });
       }
 
       localStorage.setItem('carrito', JSON.stringify(carrito));
