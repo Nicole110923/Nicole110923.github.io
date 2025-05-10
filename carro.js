@@ -14,17 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const botones = document.querySelectorAll('.agregar-carrito');
 
+  if (botones.length === 0) {
+    console.warn('No se encontraron botones con la clase .agregar-carrito');
+  }
+
   botones.forEach(boton => {
     boton.addEventListener('click', () => {
       const libro = boton.closest('.libro');
-      
-      // Busca título con h3 o h2
-      const tituloElemento = libro.querySelector('h3') || libro.querySelector('h2');
-      const titulo = tituloElemento ? tituloElemento.textContent.trim() : 'Sin título';
+      const tituloEl = libro.querySelector('h3') || libro.querySelector('h2');
+      const titulo = tituloEl ? tituloEl.textContent.trim() : 'Sin título';
 
-      // Busca precio con clase o el último <p>
-      const precioElemento = libro.querySelector('.precio') || libro.querySelector('p:last-of-type');
-      const precioTexto = precioElemento.textContent.replace('$', '').trim();
+      const precioEl = libro.querySelector('.precio') || libro.querySelector('p:last-of-type');
+      const precioTexto = precioEl.textContent.replace('$', '').trim();
       const precio = parseFloat(precioTexto);
 
       const imagen = libro.querySelector('img')?.getAttribute('src') || '';
