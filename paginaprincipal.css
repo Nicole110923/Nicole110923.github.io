@@ -2,7 +2,7 @@ body {
     background: #f8f0fc;
     font-family: 'Lato', sans-serif;
     margin: 0;
-    padding: 0;
+    padding-top: 60px; /* Ajuste para menú fijo */
     text-align: center;
     color: #5e35b1;
 }
@@ -34,9 +34,19 @@ p {
 
 .logo-izquierdo,
 .logo-derecho {
-    width: 140px; /* Tamaño aumentado */
+    width: 140px;
     height: auto;
     max-width: 100%;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #9575cd;
+    z-index: 1000;
+    border-bottom: 2px solid #7e57c2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu ul {
@@ -45,7 +55,6 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #9575cd;
     margin: 0;
 }
 
@@ -181,7 +190,7 @@ footer i {
 
     .logo-izquierdo,
     .logo-derecho {
-        width: 120px; /* Tamaño móvil más grande que antes */
+        width: 120px;
     }
 
     .menu ul {
