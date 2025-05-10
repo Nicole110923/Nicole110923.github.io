@@ -1,187 +1,149 @@
 body {
     background: #f8f0fc;
     font-family: 'Lato', sans-serif;
+    color: #5e35b1;
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
-    color: #5e35b1;
 }
 
-h1 {
-    background-color: #7e57c2;
-    color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 2em;
-}
-
-h2, h3 {
-    color: #6a1b9a;
-    margin: 10px 0;
-}
-
-p {
-    font-size: 1.1em;
-    color: #5e35b1;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #9575cd;
+    padding: 10px 20px;
 }
 
 .logos {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
 }
 
-.logo-izquierdo,
-.logo-derecho {
-    width: 100px;
+.logo-izquierdo {
+    width: 150px;
     height: auto;
-     max-width: 100%;
+    margin-left: 20px;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu ul {
-    list-style: none;
-    padding: 0;
     display: flex;
-    justify-content: center;
     gap: 20px;
-    background-color: #9575cd;
-    margin: 0;
 }
 
-.menu a,
-.menu button.enlace {
-    text-decoration: none;
+.menu li {
+    display: inline;
+}
+
+.menu .enlace {
     color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    display: block;
-    background-color: #9575cd;
-    border: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2em;
 }
 
-.menu a:hover,
-.menu button.enlace:hover {
-    background-color: #7e57c2;
-    border-radius: 5px;
+.menu .enlace:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    color: #5e35b1;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4a235a;
+    margin-top: 20px;
 }
 
 .catalogo {
     display: flex;
-    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    gap: 30px;
-    padding: 20px;
+    margin-top: 20px;
 }
 
 .libro {
-    background-color: #e1bee7;
+    background-color: #f5eef8;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
     padding: 15px;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.libro:hover {
-    transform: scale(1.05);
 }
 
 .imagen-libro {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    max-height: 300px;
-    object-fit: cover;
 }
 
-/* BOTONES */
-.agregar-carrito,
-#boton-pagar,
-#boton-eliminar {
+.info-libro {
+    margin-top: 10px;
+}
+
+.agregar-carrito {
     background-color: #ba68c8;
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 6px;
-    padding: 10px 15px;
-    margin-top: 10px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.agregar-carrito:hover,
-#boton-pagar:hover,
-#boton-eliminar:hover {
+.agregar-carrito:hover {
     background-color: #ab47bc;
 }
 
-/* CARRITO */
-#carrito-container {
-    background-color: #f3e5f5;
-    border: 2px solid #d1c4e9;
-    color: #6a1b9a;
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    display: none;
-}
-
-#carrito-container.activo {
-    display: block;
-}
-
-/* FORMULARIO PAGO */
-#formulario-pago button[type="submit"] {
-    background-color: #7b1fa2;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#formulario-pago button[type="submit"]:hover {
-    background-color: #6a1b9a;
-}
-
-#formulario-pago input {
-    width: 90%;
-    max-width: 300px;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #d1c4e9;
-    border-radius: 4px;
-}
-
-/* FOOTER */
 footer {
-    font-size: 18px;
+    background-color: #f5eef8;
     padding: 20px;
-    background-color: #ede7f6;
-    margin-top: 40px;
+    font-size: 18px;
     color: #5e35b1;
+    text-align: center;
 }
 
 footer i {
-    font-size: 28px;
+    font-size: 30px;
     color: #7e57c2;
     margin: 0 8px;
 }
 
-/* RESPONSIVE */
+footer .m {
+    font-size: 20px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #7e57c2;
+}
+
+footer a:hover {
+    color: #5e35b1;
+}
+
 @media (max-width: 600px) {
     .logos {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
 
-    .menu ul {
+    .menu {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
 
     .catalogo {
@@ -192,4 +154,9 @@ footer i {
     .libro {
         width: 90%;
     }
+
+    footer {
+        font-size: 16px;
+    }
 }
+
