@@ -2,7 +2,20 @@ body {
     background: #d7bde2 ;
 text-align: center;
 }
+.inicio, .arriba {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #9b30ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
 
+.inicio:hover, .arriba:hover {
+  background-color: #6a0dad;
+}
 p{
     font-size: 150%;
     font-family: monospace;
