@@ -1,26 +1,3 @@
-
-.menu {
-  background-color: #d2b4de;
-  padding: 15px 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-.menu a:hover {
-  background-color: #4b0082;
-}
 * {
   margin: 0;
   padding: 0;
@@ -232,3 +209,24 @@ footer {
 .inicio:hover, .arriba:hover {
   background-color: #6a0dad;
 }
+.menu {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #4b0082;
+}
+
