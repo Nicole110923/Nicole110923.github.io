@@ -56,37 +56,61 @@ body {
 }
 
 .catalogo {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.grid-catalogo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
-  margin-top: 30px;
+  padding: 20px;
 }
 
 .libro {
   background-color: #ede3ff;
   border-radius: 8px;
-  padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  width: 250px;
+  padding: 15px;
+  transition: transform 0.3s ease;
 }
 
 .libro:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-.libro img {
+.imagen-libro {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
   max-height: 300px;
   object-fit: cover;
   margin-bottom: 10px;
 }
+
+.info-libro {
+  padding-top: 10px;
+}
+
+.info-libro h2 {
+  font-size: 1.4em;
+  color: #4b0082;
+}
+
+.info-libro p {
+  font-size: 1em;
+  color: #6c3483;
+  margin: 5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #6a0dad;
+  font-size: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #4b0082;
+}
+
 
 .precio {
   font-weight: bold;
