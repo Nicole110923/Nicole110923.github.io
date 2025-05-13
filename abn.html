@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Detalle del Libro</title>
-	<link rel="stylesheet" type="text/css" href="abn.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle del Libro</title>
+  <link rel="stylesheet" type="text/css" href="abn.css">
 </head>
 <body>
 <header class="encabezado">
   <nav class="menu">
-	  <a href="index.html">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="categoria.html">Catálogo</a>
     <a href="contacto.html">Contacto</a>
     <a href="registro.html">Registrarse</a>
   </nav>
 </header>
+
 <div class="contenedor">
-    <img src="abn.png" alt="Portada del libro" class="oyp">
+  <img src="abn.png" alt="Portada del libro" class="oyp">
 
-    <div class="detalles">
-	       <h1><strong>La Abadia de Northanger</strong></h1>
-        <p><strong>Número de Páginas:</strong> 384</p>
-        <p><strong>Idioma:</strong> Español</p>
-        <p><strong>Editorial:</strong> Penguin Random House Grupo Editorial SA de CV</p>
-        <p><strong>Fecha de publicación:</strong> 1 noviembre 2017</p>
-        <p><strong>Precio:</strong> $289</p>
-        <p><strong>Edad de lectura:</strong> A partir de 18 años</p>
-        <p><strong>Dimensiones:</strong> 13.4 x 2.3 x 21 cm</p>
+  <div class="detalles">
+    <h1><strong>La Abadía de Northanger</strong></h1>
+    <p><strong>Número de Páginas:</strong> 384</p>
+    <p><strong>Idioma:</strong> Español</p>
+    <p><strong>Editorial:</strong> Penguin Random House Grupo Editorial SA de CV</p>
+    <p><strong>Fecha de publicación:</strong> 1 noviembre 2017</p>
+    <p><strong>Precio:</strong> $289</p>
+    <p><strong>Edad de lectura:</strong> A partir de 18 años</p>
+    <p><strong>Dimensiones:</strong> 13.4 x 2.3 x 21 cm</p>
 
-        <div class="botones">
-             <button class="agregar-carrito" data-nombre="La Abadía de Northanger"  data-imagen="abn.png data-precio="289">Agregar al carrito</button>
-            <a href="categoria.html"><button class="a">Catálogo</button></a>
-        </div>
+    <div class="botones">
+      <button class="agregar-carrito" 
+              data-nombre="La Abadía de Northanger" 
+              data-imagen="abn.png" 
+              data-precio="289">
+        Agregar al carrito
+      </button>
+      <a href="categoria.html"><button class="a">Catálogo</button></a>
     </div>
-</div>
-	 <div id="carrito-flotante" onclick="window.location.href='carritodecompras.html'">
-    🛒 <span id="contador-carrito">0</span>
   </div>
-<script src="carro.js"></script>
+</div>
 
+<div id="carrito-flotante" onclick="window.location.href='carritodecompras.html'">
+  🛒 <span id="contador-carrito">0</span>
+</div>
+
+<script src="carro.js"></script>
 </body>
 </html>
