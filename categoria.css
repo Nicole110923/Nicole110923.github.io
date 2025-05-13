@@ -248,4 +248,8 @@ footer {
   align-items: center;
   margin-bottom: 10px;
 }
+#carrito-flotante {
+  background-color: red !important;
+  border: 2px solid black;
+}
 
