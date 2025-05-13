@@ -74,26 +74,34 @@
   </footer>
 
   <script src="carro.js"></script>
-  <script>
-    function cargarCarrito() {
-      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-      const productosCarrito = document.getElementById('productos-carrito');
-      const totalElement = document.getElementById('total-a-pagar');
-      
-      let total = 0;
-      productosCarrito.innerHTML = '';
+<script>
+  function cargarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const productosCarrito = document.getElementById('productos-carrito');
+    const totalElement = document.getElementById('total-a-pagar');
+    
+    let total = 0;
+    productosCarrito.innerHTML = '';
 
-      carrito.forEach(producto => {
-        const li = document.createElement('li');
-        li.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
-        productosCarrito.appendChild(li);
-        total += producto.precio * producto.cantidad;
-      });
+    carrito.forEach(producto => {
+      const li = document.createElement('li');
+      li.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
+      productosCarrito.appendChild(li);
+      total += producto.precio * producto.cantidad;
+    });
 
-      totalElement.textContent = total.toFixed(2);
-    }
+    totalElement.textContent = total.toFixed(2);
+  }
 
-    window.onload = cargarCarrito;
-  </script>
+  window.onload = cargarCarrito;
+
+  document.getElementById('formulario-compra').addEventListener('submit', function(e) {
+    e.preventDefault();
+    localStorage.removeItem('carrito');
+    alert('Compra confirmada. ¡Gracias por tu compra!');
+    window.location.href = 'index.html';
+  });
+</script>
+
 </body>
 </html>
