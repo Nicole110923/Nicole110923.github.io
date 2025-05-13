@@ -6,8 +6,7 @@
   <title>Comprar - N'C BOOKS</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="compra.css" />
-
+  <link rel="stylesheet" href="compra.css" />
 </head>
 <body>
   <header class="encabezado">
@@ -20,7 +19,6 @@
   </header>
 
   <main>
-    
     <div id="resumen-carrito">
       <h4>Productos en tu carrito:</h4>
       <ul id="productos-carrito"></ul>
@@ -28,6 +26,21 @@
     </div>
 
     <form id="formulario-compra" class="formulario-compra">
+      <label for="nombre">Nombre del Titular</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre completo del titular" required>
+
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required>
+
+      <label for="tipo-tarjeta">Tipo de Tarjeta</label>
+      <select id="tipo-tarjeta" name="tipo-tarjeta" required>
+        <option value="">Selecciona una opción</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="amex">American Express</option>
+        <option value="otro">Otro</option>
+      </select>
+
       <label for="numero">Número de Tarjeta</label>
       <input type="text" id="numero" name="numero" placeholder="Ingresa tu número de tarjeta" required>
 
@@ -35,7 +48,12 @@
       <input type="month" id="expiracion" name="expiracion" required>
 
       <label for="cvv">CVV</label>
-      <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+      <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="4" required>
+
+      <label for="terminos">
+        <input type="checkbox" id="terminos" name="terminos" required>
+        Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a>.
+      </label>
 
       <button type="submit">Confirmar Compra</button>
     </form>
@@ -63,7 +81,7 @@
       const totalElement = document.getElementById('total-a-pagar');
       
       let total = 0;
-      productosCarrito.innerHTML = ''; // Limpiar productos previos
+      productosCarrito.innerHTML = '';
 
       carrito.forEach(producto => {
         const li = document.createElement('li');
@@ -72,10 +90,9 @@
         total += producto.precio * producto.cantidad;
       });
 
-      totalElement.textContent = total.toFixed(2); // Mostrar el total con dos decimales
+      totalElement.textContent = total.toFixed(2);
     }
 
-    // Cargar el carrito cuando se cargue la página
     window.onload = cargarCarrito;
   </script>
 </body>
