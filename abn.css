@@ -80,7 +80,7 @@ p {
   border-radius: 8px;
 }
 
-/* Eslogan */
+
 .eslogan {
   font-size: 1.1rem;
   font-style: italic;
@@ -88,7 +88,6 @@ p {
   color: #f0e9ff;
 }
 
-/* Menú de navegación */
 .menu {
   display: flex;
   justify-content: center;
@@ -110,3 +109,41 @@ p {
 .menu a:hover {
   background-color: #4b0082;
 }
+.agregar-carrito {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.agregar-carrito:hover {
+    background-color: #6c3483;
+}
+#carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8e44ad;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#carrito-flotante:hover {
+    background-color: #6c3483;
+}
+
