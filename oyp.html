@@ -1,16 +1,27 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Detalle del Libro</title>
+	<link rel="stylesheet" type="text/css" href="abn.css">
 </head>
 <body>
-   
-<link rel="stylesheet" type="text/css" href="orgulloyprejuicio.css">
-    <img src="oyp.png" class="oyp">
-    <h1><strong>Ogullo Y Prejuicio</strong></h1>
-    <br>
+<header class="encabezado">
+  <nav class="menu">
+    <a href="categoria.html">Catálogo</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="registro.html">Registrarse</a>
+    <a href="carritodecompras.html">Carrito</a>
+  </nav>
+</header>
+<div class="contenedor">
+   <img src="oyp.png" class="oyp">
+    <div class="detalles">
+ 
+<h1><strong>Ogullo Y Prejuicio</strong></h1>
     	<p><strong>Numero de Paginas:</strong>384</p>
 <p><strong>Idioma:</strong>Español</p>
 <p><strong>Editorial:</strong>Penguin Random House Grupo Editorial SA de CV</p>
@@ -18,11 +29,12 @@
 <p><strong>Precio:</strong>$299</p>
 <p><strong>Edad de lectura:</strong>A partir de 18 años</p>
 <p><strong>Dimensiones:</strong>13.4 x 2.3 x 21 cm</p>
-<br>
-<br>
-<br>
-<br>
-<a href="index.html"><button class="a">Inicio</button></a>
-<a href="categoria.html"><input type="button" class="a" value="Catalogo"name="Comprar"></a>
+             <button class="agregar-carrito" data-nombre="La Abadía de Northanger" data-precio="289">Agregar al carrito</button>
+            <a href="categoria.html"><button class="a">Catálogo</button></a>
+        </div>
+    </div>
+</div>
+<script src="carro.js"></script>
+
 </body>
 </html>
