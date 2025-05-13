@@ -132,14 +132,13 @@ a:hover {
   transition: transform 0.3s ease;
 }
 
-
 #carrito-flotante:hover {
   transform: scale(1.1);
 }
 #carrito-container {
   text-align: left;
   position: fixed;
-  top: 10px;
+  top: 30px;
   right: 10px;
   width: 300px;
   background-color: #f9ebf9;
@@ -248,8 +247,3 @@ footer {
   align-items: center;
   margin-bottom: 10px;
 }
-#carrito-flotante {
-  background-color: red !important;
-  border: 2px solid black;
-}
-
