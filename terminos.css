@@ -1,50 +1,108 @@
-body {
-  background: #d7bde2;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-p {
-  font-size: 150%;
-  font-family: monospace;
-  text-align: right;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4efff;
+  color: #4b0082;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.encabezado {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #d2b4de;
+  color: white;
+}
+
+.contenedor-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.eslogan {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  text-align: justify;
 }
 
 h1 {
-  text-align: right;
+  color: #4b0082;
+  margin-bottom: 20px;
 }
 
-.oyp {
-  text-align: left;
-  width: 500px;
-  height: auto;
-  position: absolute;
-  left: 1px;
-  border-radius: 10px;
+p {
+  font-size: 1.1em;
+  font-family: 'Segoe UI', sans-serif;
+  color: #6c3483;
+  margin: 10px 0;
 }
 
-.a {
-  font-size: 30px;
-  padding: 5px 15px;
-  background-color: mediumpurple;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.inicio,
-.arriba {
-  margin-top: 10px;
-  padding: 10px 15px;
+button {
   background-color: #9b30ff;
   color: white;
   border: none;
+  padding: 10px 15px;
   border-radius: 6px;
-  text-align: center;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.inicio:hover,
-.arriba:hover {
+button:hover {
   background-color: #6a0dad;
+}
+
+footer {
+  background-color: #e6d4ff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #4b0082;
+}
+
+.redes a {
+  margin: 0 10px;
+  font-size: 1.5em;
+  color: #6a0dad;
+  transition: color 0.3s;
+}
+
+.redes a:hover {
+  color: #4b0082;
+}
+
+#carrito-flotante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #884ea0;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#carrito-flotante:hover {
+  transform: scale(1.1);
 }
