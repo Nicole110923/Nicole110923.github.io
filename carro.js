@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   botones.forEach(btn => {
     btn.addEventListener('click', () => {
-      const contenedor = btn.closest('.libro') || btn.parentElement;
+      const contenedor = btn.closest('.libro') || btn.closest('.detalles') || btn.parentElement;
+
+      // Obtener nombre
       let nombre = btn.dataset.nombre;
       if (!nombre && contenedor) {
-        const titleElem = contenedor.querySelector('h3') || contenedor.querySelector('h2');
-        nombre = titleElem ? titleElem.textContent : '';
+        const titleElem = contenedor.querySelector('h3') || contenedor.querySelector('h2') || contenedor.querySelector('h1');
+        nombre = titleElem ? titleElem.textContent.trim() : '';
       }
 
+      // Obtener precio
       let precioText = btn.dataset.precio || '';
       if (!precioText && contenedor) {
         const precioElem = contenedor.querySelector('p.precio');
@@ -24,8 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const precio = parseFloat(precioText.replace(/[^0-9.,]/g, '').replace(',', '.'));
 
-      // Obtener la imagen del producto
-      const imagen = contenedor.querySelector('img') ? contenedor.querySelector('img').src : '';
+      // Obtener imagen desde el data-imagen o desde el contenedor
+      let imagen = btn.dataset.imagen;
+      if (!imagen && contenedor) {
+        const imgElem = document.querySelector('.contenedor img') || contenedor.querySelector('img');
+        imagen = imgElem ? imgElem.getAttribute('src') : '';
+      }
 
       const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
       const productoExistente = carrito.find(item => item.nombre === nombre);
@@ -33,12 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (productoExistente) {
         productoExistente.cantidad++;
       } else {
-        // Agregar el nuevo producto con imagen
         carrito.push({
           nombre: nombre,
           precio: precio,
           cantidad: 1,
-          imagen: imagen // Guardar la imagen
+          imagen: imagen
         });
       }
 
