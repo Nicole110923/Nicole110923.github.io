@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Pago</title>
+  <link rel="stylesheet" href="compra.css">
+</head>
+<body>
+<header class="encabezado">
+    <div class="contenedor-logo">
+    </div>
+    <nav class="menu" style="font-size: 20px;">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html">Catálogo</a>
+      <a href="registro.html">Registrarse</a>
+      <a href="carritodecompras.html">Carrito</a>
+    </nav>
+  </header>
+
+
+  <div class="formulario-compra">
+    <form id="pagoForm">
+      <label for="tipo-tarjeta">Tipo de Tarjeta</label>
+      <select id="tipo-tarjeta" name="tipo-tarjeta" required>
+        <option value="">Seleccione una opción</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="amex">American Express</option>
+      </select>
+
+      <label for="nombre">Nombre Completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre como aparece en la tarjeta" required />
+
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required />
+
+      <label for="numero">Número de Tarjeta</label>
+      <input type="text" id="numero" name="numero" placeholder="XXXX XXXX XXXX XXXX" required maxlength="19"/>
+
+      <a href="index.html"><button type="submit">Pagar</button></a>
+    </form>
+  </div>
+  <footer>
+    <p>Contactos:</p>
+    <div class="redes">
+      <a href="https://www.instagram.com/nc_books25/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@nc_books25" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/56666666666" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ncbooks25@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 N'C BOOKS - Nicole Casillas</p>
+  </footer>
+
+  <script>
+    document.getElementById("pagoForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Pago procesado con éxito. ¡Gracias por su compra!");
+    });
+  </script>
+
+</body>
+</html>
