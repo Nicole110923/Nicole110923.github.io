@@ -2,22 +2,50 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Términos y Condiciones</title>
-  <link rel="stylesheet" href="terminos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Términos y Condiciones | N'C BOOKS</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <h1>Términos y Condiciones</h1>
-  <p>Al utilizar este sitio web, aceptas los siguientes términos y condiciones:</p>
-  <p>1. Todos los contenidos son propiedad de N'C BOOKS o sus respectivos autores.</p>
-  <p>2. Está prohibida la reproducción o distribución sin autorización previa.</p>
-  <p>3. Los precios y disponibilidad están sujetos a cambios sin previo aviso.</p>
-  <p>4. El uso del sitio implica la aceptación de nuestra política de privacidad.</p>
-  <p>5. Nos reservamos el derecho de modificar estos términos en cualquier momento.</p>
+  <header class="encabezado">
+    <div class="contenedor-logo">
+      <img src="logo.png" alt="Logo de N'C BOOKS" class="logo">
+    </div>
+    <p class="eslogan">Refugio en las palabras. Libertad en las historias.</p>
+  </header>
 
-  <br><br>
- <a href="index.html"><button class="inicio" onclick="window.history.back()">Volver</button></a>
+  <main style="max-width: 800px; margin: auto; text-align: justify; padding: 30px;">
+    <h1 style="text-align: center; color: #4b0082; margin-bottom: 20px;">Términos y Condiciones</h1>
+    
+    <p>Bienvenido a N'C BOOKS. Al utilizar nuestro sitio, aceptas los siguientes términos:</p>
+    <p>1. Todo el contenido es propiedad intelectual de N'C BOOKS o sus autores respectivos.</p>
+    <p>2. No está permitida la reproducción ni distribución sin autorización previa.</p>
+    <p>3. Los precios y disponibilidad pueden cambiar sin previo aviso.</p>
+    <p>4. El uso del sitio implica la aceptación de nuestra política de privacidad.</p>
+    <p>5. Nos reservamos el derecho a modificar estos términos en cualquier momento.</p>
 
+    <div style="text-align: center; margin-top: 40px;">
+      <button onclick="window.history.back()">Volver</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contactos:</p>
+    <div class="redes">
+      <a href="https://www.instagram.com/nc_books25/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@nc_books25" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/56666666666" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ncbooks25@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 N'C BOOKS - Nicole Casillas</p>
+  </footer>
+
+  <div id="carrito-flotante" onclick="window.location.href='carritodecompras.html'">
+    🛒 <span id="contador-carrito">0</span>
+  </div>
+
+  <script src="carro.js"></script>
 </body>
 </html>
