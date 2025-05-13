@@ -230,14 +230,21 @@ footer {
   background-color: #4b0082;
 }
 .encabezado {
-  text-align: center;
-  padding: 30px 20px;
-  background-color: #d2b4de ;
+ background-color: #d2b4de ;
   color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+
 
 .contenedor-logo {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
+
