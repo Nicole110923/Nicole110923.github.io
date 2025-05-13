@@ -1,45 +1,112 @@
 body {
-    background: #d7bde2 ;
-text-align: center;
+    background: #d7bde2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-p{
-    font-size: 150%;
-    font-family: monospace;
-    text-align: right;
-    }
-.inicio, .arriba {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #9b30ff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  text-align: center;
-  transition: background-color 0.3s;
-}
-
-.inicio:hover, .arriba:hover {
-  background-color: #6a0dad;
-}
-h1{
-    text-align: right;
-    }
-     
-   .oyp {
-    text-align: left;
-    width: 500px;
-    height: auto;
-    position: absolute;
-    left:1px;
+.contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    background-color: #f9f4fd;
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    align-items: flex-start;
+    gap: 30px;
 }
-.a{
-    font-size: 30px; 
-      padding: 5px 15px; 
-      background-color:mediumpurple;
-      color: black; 
-      border: none; 
-      border-radius: 5px; 
-      text-align: center;
+
+.oyp {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.detalles {
+    flex: 1;
+    text-align: left;
+}
+
+p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.botones {
+    margin-top: 30px;
+}
+
+.a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-color: mediumpurple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.a:hover {
+    background-color: #6a0dad;
+}
+/* Estilo del encabezado principal */
+.encabezado {
+  background-color: #6a0dad;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Logo y contenedor del logo */
+.contenedor-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+}
+
+/* Eslogan */
+.eslogan {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #f0e9ff;
+}
+
+/* Menú de navegación */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #4b0082;
 }
