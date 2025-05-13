@@ -119,7 +119,7 @@ a:hover {
 
 #carrito-flotante {
   position: fixed;
-  top: 10px;
+  top: 40px;
   right: 20px;
   background-color: #bb8fce;
   color: white;
