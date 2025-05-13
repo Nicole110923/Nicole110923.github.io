@@ -39,7 +39,7 @@ p {
     margin-top: 30px;
 }
 
-.a {
+.agregar-carrito, .a{
     font-size: 1.1rem;
     padding: 10px 20px;
     background-color: mediumpurple;
@@ -51,10 +51,9 @@ p {
     transition: background-color 0.3s ease;
 }
 
-.a:hover {
-    background-color: #6a0dad;
+.agregar-carrito, .a:hover {
+    background-color:  #6c3483;
 }
-/* Estilo del encabezado principal */
 .encabezado {
  background-color: #d2b4de ;
   color: white;
@@ -66,7 +65,6 @@ p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Logo y contenedor del logo */
 .contenedor-logo {
   display: flex;
   justify-content: center;
@@ -107,22 +105,7 @@ p {
 }
 
 .menu a:hover {
-  background-color: #4b0082;
-}
-.agregar-carrito {
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    background-color: #8e44ad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.agregar-carrito:hover {
-    background-color: #6c3483;
+  background-color:  #6c3483;
 }
 #carrito-flotante {
     position: fixed;
@@ -146,4 +129,3 @@ p {
 #carrito-flotante:hover {
     background-color: #6c3483;
 }
-
