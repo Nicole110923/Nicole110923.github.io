@@ -228,7 +228,17 @@
     N'C BOOKS.</p>
   </footer>
 <script src="carro.js"></script>
+  <script>
+document.querySelectorAll('.boton-comprar-ahora').forEach(boton => {
+  boton.addEventListener('click', () => {
+    const nombre = boton.getAttribute('data-nombre');
+    const precio = parseFloat(boton.getAttribute('data-precio'));
 
-
+    const producto = { nombre, precio, cantidad: 1 };
+    localStorage.setItem('productoCompraDirecta', JSON.stringify(producto));
+    window.location.href = 'compra.html';
+  });
+});
+  </script>
 </body>
   </html>
