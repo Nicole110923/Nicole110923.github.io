@@ -7,7 +7,113 @@
   <link rel="stylesheet" href="carritodecompras.css">
 </head>
 <body>
-  <img src="logo.png" alt="logo" class="l" />
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>N'C BOOKS - Carrito y Pago</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="abn.css">
+</head>
+<body>
+
+  <h1>Finaliza tu compra en N'C BOOKS</h1>
+
+  <main>
+  
+    <div id="resumen-carrito">
+      <h4>Productos en tu carrito:</h4>
+      <ul id="productos-carrito"></ul>
+      <p class="total"><strong>Total a pagar: $<span id="total-a-pagar">0</span></strong></p>
+    </div>
+
+  
+    <form id="formulario-compra" class="formulario-compra">
+      <label for="nombre">Nombre del Titular</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre completo del titular" required>
+
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required>
+
+      <label for="tipo-tarjeta">Tipo de Tarjeta</label>
+      <select id="tipo-tarjeta" name="tipo-tarjeta" required>
+        <option value="">Selecciona una opción</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="amex">American Express</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="numero">Número de Tarjeta</label>
+      <input type="text" id="numero" name="numero" placeholder="Ingresa tu número de tarjeta" maxlength="16" pattern="\d{13,16}" inputmode="numeric" required>
+
+      <label for="expiracion">Fecha de Expiración</label>
+      <input type="month" id="expiracion" name="expiracion" required>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="4" pattern="\d{3,4}" inputmode="numeric" required>
+
+      <label>
+        <input type="checkbox" id="terminos" required>
+        Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a>.
+      </label>
+
+      <button type="submit">Confirmar Compra</button>
+    </form>
+  </main>
+
+  <script>
+    
+    const listaProductos = document.getElementById('productos-carrito');
+    const totalElemento = document.getElementById('total-a-pagar');
+
+    function cargarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      listaProductos.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach(producto => {
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} x${producto.cantidad} - $${producto.precio * producto.cantidad}`;
+        listaProductos.appendChild(li);
+        total += producto.precio * producto.cantidad;
+      });
+
+      totalElemento.textContent = total.toFixed(2);
+    }
+
+    
+    document.getElementById('numero').addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 16);
+    });
+
+    document.getElementById('cvv').addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 4);
+    });
+
+  
+    const formulario = document.getElementById('formulario-compra');
+    formulario.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!formulario.checkValidity()) {
+        alert('Por favor, completa todos los campos correctamente.');
+        return;
+      }
+
+      alert('¡Gracias por tu compra! Tu pedido ha sido procesado.');
+      localStorage.removeItem('carrito');
+      formulario.reset();
+      cargarCarrito();
+    });
+
+    // Inicializar resumen del carrito
+    cargarCarrito();
+  </script>
+
+</body>
+</html>
+ <img src="logo.png" alt="logo" class="l" />
   <h1>🛒 Carrito de Compras</h1>
   <div id="carrito-contenido"></div>
   <p class="total" id="total">Total: $0</p>
