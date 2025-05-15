@@ -39,24 +39,27 @@ body {
 }
 
 .menu {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 25px;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .menu a {
+  color: #6c3483;
   text-decoration: none;
-  color: white;
   font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu a:hover {
-  background-color: #4b0082;
+  background-color: #6c3483;
+  color: white;
+}
 }
 
 .formulario-registro {
