@@ -112,7 +112,13 @@ footer a:hover {
         flex-direction: column;
         gap: 10px;
     }
-
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    text-align: center;
+  }
     .menu ul {
         flex-direction: column;
         gap: 10px;
