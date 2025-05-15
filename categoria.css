@@ -102,7 +102,7 @@ a:hover {
   cursor: pointer;
 }
 
-.agregar-carrito {
+.agregar-carrito, .boton-comprar-ahora {
   margin-top: 10px;
   padding: 10px 15px;
   background-color: #9b30ff;
@@ -113,7 +113,7 @@ a:hover {
   transition: background-color 0.3s ease;
 }
 
-.agregar-carrito:hover {
+.agregar-carrito, .boton-comprar-ahora:hover {
   background-color: #6a0dad;
 }
 
