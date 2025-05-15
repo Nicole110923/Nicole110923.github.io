@@ -21,20 +21,20 @@
   <h3>Catálogo de Libros<br>Libros de todos y con todo</h3>
 
   <div class="catalogo">
-    <div class="libro">
-      <a href="oyp.html">
-        <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio" />
-        <div class="info-libro">
-          <h2>Orgullo y Prejuicio</h2>
-          <p><strong>Autor:</strong> Jane Austen</p>
-          <p><strong>Género:</strong> Novela rosa, Ficción, Sátira, Novela costumbrista.</p>
-          <p><strong>Precio:</strong> $299</p>
-        </div>
-      </a>
-      <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
-        <a href="compra.html?nombre=Emma&precio=270"<button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Comprar</button></a>
-
+   <div class="libro">
+  <a href="oyp.html">
+    <img src="oyp.png" class="imagen-libro" alt="Orgullo y Prejuicio" />
+    <div class="info-libro">
+      <h2>Orgullo y Prejuicio</h2>
+      <p><strong>Autor:</strong> Jane Austen</p>
+      <p><strong>Género:</strong> Novela rosa, Ficción, Sátira</p>
+      <p><strong>Precio:</strong> $299</p>
     </div>
+  </a>
+  <button class="agregar-carrito" data-nombre="Orgullo y Prejuicio" data-precio="299">Agregar al carrito</button>
+  <button class="boton-comprar-ahora" data-nombre="Orgullo y Prejuicio" data-precio="299">Comprar</button>
+</div>
+
 
     <div class="libro">
       <a href="sys.html">
@@ -228,17 +228,8 @@
     N'C BOOKS.</p>
   </footer>
 <script src="carro.js"></script>
-  <script>
-document.querySelectorAll('.boton-comprar-ahora').forEach(boton => {
-  boton.addEventListener('click', () => {
-    const nombre = boton.getAttribute('data-nombre');
-    const precio = parseFloat(boton.getAttribute('data-precio'));
+    <script src="comprar.js"></script>
 
-    const producto = { nombre, precio, cantidad: 1 };
-    localStorage.setItem('productoCompraDirecta', JSON.stringify(producto));
-    window.location.href = 'compra.html';
-  });
-});
   </script>
 </body>
   </html>
