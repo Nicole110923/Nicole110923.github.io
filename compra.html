@@ -76,6 +76,7 @@
   <script src="carro.js"></script>
 <script>
   function cargarCarrito() {
+    const productoUnico = JSON.parse(localStorage.getItem('productoCompraDirecta'));
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const productosCarrito = document.getElementById('productos-carrito');
     const totalElement = document.getElementById('total-a-pagar');
@@ -83,12 +84,19 @@
     let total = 0;
     productosCarrito.innerHTML = '';
 
-    carrito.forEach(producto => {
+    if (productoUnico) {
       const li = document.createElement('li');
-      li.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
+      li.textContent = `${productoUnico.nombre} - $${productoUnico.precio} x 1`;
       productosCarrito.appendChild(li);
-      total += producto.precio * producto.cantidad;
-    });
+      total = productoUnico.precio;
+    } else {
+      carrito.forEach(producto => {
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
+        productosCarrito.appendChild(li);
+        total += producto.precio * producto.cantidad;
+      });
+    }
 
     totalElement.textContent = total.toFixed(2);
   }
@@ -97,11 +105,18 @@
 
   document.getElementById('formulario-compra').addEventListener('submit', function(e) {
     e.preventDefault();
-    localStorage.removeItem('carrito');
+
+    if (localStorage.getItem('productoCompraDirecta')) {
+      localStorage.removeItem('productoCompraDirecta');
+    } else {
+      localStorage.removeItem('carrito');
+    }
+
     alert('Compra confirmada. ¡Gracias por tu compra!');
     window.location.href = 'index.html';
   });
 </script>
+
 
 </body>
 </html>
