@@ -5,16 +5,61 @@ body {
   padding: 0;
 }
 
-header {
+.encabezado {
   background-color: #d2b4de;
   color: white;
-  text-align: center;
   padding: 20px;
-  font-size: 1.8rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.contact-container {
+.contenedor-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.eslogan {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #f0e9ff;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.menu a {
+  color: #6c3483;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #6c3483;
+  color: white;
+}
+
+.contenedor {
   max-width: 900px;
   margin: 40px auto;
   background-color: #f9f4fd;
@@ -23,7 +68,7 @@ header {
   align-items: flex-start;
   gap: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .contact-text {
@@ -60,33 +105,32 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: color 0.3s ease;
 }
 
 .contact-icons a:hover {
   color: #4a235a;
 }
 
-.logo-img {
+.oyp {
   width: 250px;
   border-radius: 12px;
   object-fit: cover;
 }
 
-.inicio {
-  display: block;
-  margin: 30px auto;
-  background-color: mediumpurple;
+.agregar-carrito {
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  background-color: #6c3483;
   color: white;
-  padding: 10px 25px;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.inicio:hover {
-  background-color: #6c3483;
+.agregar-carrito:hover {
+  background-color: #4a235a;
 }
 
 footer {
@@ -98,32 +142,34 @@ footer {
   margin-top: 50px;
 }
 
-.redes {
-  display: flex;
-  justify-content: center;
+footer .menu {
   gap: 20px;
-  margin: 10px 0;
 }
 
-.redes a {
-  color: white;
+footer .menu a {
   font-size: 1.3rem;
+  color: #6c3483;
   transition: color 0.3s ease;
 }
 
-.redes a:hover {
+footer .menu a:hover {
   color: #f0e9ff;
 }
 
 @media (max-width: 768px) {
-  .contact-container {
+  .contenedor {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .logo-img {
+  .oyp {
     width: 80%;
     margin-top: 20px;
   }
+
+  .contact-icons {
+    align-items: center;
+  }
 }
+
