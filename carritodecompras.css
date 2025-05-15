@@ -1,5 +1,3 @@
-/* Estilos básicos para el carrito de compras con tonos morados y alineación a la izquierda */
-
 body {
   font-family: 'Lato', sans-serif;
   background-color: #f3e5f5;
@@ -122,3 +120,10 @@ a button {
 a button:hover {
   background-color: #6a1b9a;
 }
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    text-align: center;
+  }
