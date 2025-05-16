@@ -2,72 +2,50 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Comprobante de Compra - N'C BOOKS</title>
-  <link rel="stylesheet" href="comprobante.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comprobante de Compra | N'C BOOKS</title>
+  <style>
+    body { font-family: 'Lato', sans-serif; margin: 20px; }
+    h1 { margin-bottom: 20px; }
+    .item { display: flex; align-items: center; margin-bottom: 10px; }
+    .item img { width: 80px; height: 100px; object-fit: cover; margin-right: 10px; }
+    .item-info { flex-grow: 1; }
+  </style>
 </head>
 <body>
 
-  <header class="encabezado">
-    <div class="contenedor-logo">
-      <!-- Aquí podrías incluir un logo si lo deseas -->
-    </div>
-    <h1>N'C BOOKS</h1>
-    <p class="eslogan">¡Tu conexión con la lectura empieza aquí!</p>
-    <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="categoria.html">Catálogo</a>
-      <a href="registro.html">Registrarse</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+  <h1>Resumen de tu compra</h1>
 
-  <main class="contenedor" style="max-width: 600px; margin: 40px auto;">
-    <h2>¡Gracias por tu compra!</h2>
-    <p><strong>Nombre del titular:</strong> <span id="nombre"></span></p>
-    <p><strong>Dirección:</strong> <span id="direccion"></span></p>
-    <p><strong>Tipo de tarjeta:</strong> <span id="tarjeta"></span></p>
-
-    <h3>Resumen de productos:</h3>
-    <ul id="lista-productos"></ul>
-    <p><strong>Total pagado:</strong> $<span id="total"></span></p>
-
-    <a href="index.html" class="agregar-carrito" style="display:inline-block; margin-top:20px; text-decoration:none;">Volver al inicio</a>
-  </main>
-
-  <footer class="encabezado" style="margin-top: 50px;">
-    <p><strong>Contactos</strong></p>
-    <div class="menu" style="justify-content:center; margin-top:10px;">
-      <a href="https://www.instagram.com/nc_books25/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@nc_books25" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/526647452150" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:ncbooks25@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-    </div>
-    <p style="margin-top: 10px;">&copy; 2025 N'C DreamBooks - Nicole Casillas</p>
-  </footer>
+  <div id="resumen"></div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const data = JSON.parse(sessionStorage.getItem('comprobante'));
+    const resumenDiv = document.getElementById('resumen');
+    const comprobante = JSON.parse(sessionStorage.getItem('comprobante'));
 
-      if (!data) {
-        document.body.innerHTML = '<p style="text-align:center; margin-top: 50px;">⚠️ Error: No hay información de la compra.</p><p style="text-align:center;"><a href="index.html">Volver al inicio</a></p>';
-        return;
-      }
-
-      document.getElementById('nombre').textContent = data.nombre;
-      document.getElementById('direccion').textContent = data.direccion;
-      document.getElementById('tarjeta').textContent = data.tipoTarjeta;
-      document.getElementById('total').textContent = data.total;
-
-      const lista = document.getElementById('lista-productos');
-      data.carrito.forEach(producto => {
-        const li = document.createElement('li');
-        li.textContent = `${producto.nombre} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
-        lista.appendChild(li);
+    if (!comprobante) {
+      resumenDiv.innerHTML = '<p>No hay información de compra disponible.</p>';
+    } else {
+      let html = `
+        <p><strong>Nombre:</strong> ${comprobante.nombre}</p>
+        <p><strong>Dirección:</strong> ${comprobante.direccion}</p>
+        <p><strong>Tipo de tarjeta:</strong> ${comprobante.tipoTarjeta}</p>
+        <p><strong>Total:</strong> $${comprobante.total}</p>
+        <h2>Productos:</h2>
+      `;
+      comprobante.carrito.forEach(item => {
+        html += `
+          <div class="item">
+            <img src="${item.imagen}" alt="${item.nombre}">
+            <div class="item-info">
+              <strong>${item.nombre}</strong><br>
+              Cantidad: ${item.cantidad} <br>
+              Precio unitario: $${item.precio}
+            </div>
+          </div>
+        `;
       });
-    });
+      resumenDiv.innerHTML = html;
+    }
   </script>
 
 </body>
