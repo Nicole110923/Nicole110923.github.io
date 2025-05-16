@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Carrito de Compras - N'C BOOKS</title>
-<link rel="stylesheet" type="text/css" href="carritodecompras.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito de Compras - N'C BOOKS</title>
+  <link rel="stylesheet" type="text/css" href="carritodecompras.css">
+
+  <!-- Fuente profesional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-   <header class="encabezado">
+  <header class="encabezado">
     <nav class="menu">
       <a href="index.html">Inicio</a>
       <a href="contacto.html">Contacto</a>
-       <a href="registro.html">Registrarse</a>
+      <a href="registro.html">Registrarse</a>
       <a href="carritodecompras.html">Carrito</a>
     </nav>
   </header>
- 
-<h1>Carrito de Compras</h1>
-<section id="carrito-contenido">
-  <ul id="carrito-lista"></ul>
-  <div id="total"></div>
-  <button id="finalizar-compra">Finalizar compra</button>
-</section>
 
-<section id="formulario-pago">
-  <h2>Formulario de Pago</h2>
-  <form id="pago-form">
-    <label for="nombre">Nombre completo</label>
-    <input type="text" id="nombre" name="nombre" required />
-    <label for="tarjeta">Número de tarjeta</label>
-    <input type="text" id="tarjeta" name="tarjeta" maxlength="16" required />
-    <label for="vencimiento">Fecha de vencimiento</label>
-    <input type="month" id="vencimiento" name="vencimiento" required />
-    <label for="cvv">CVV</label>
-    <input type="text" id="cvv" name="cvv" maxlength="3" required />
-    <button type="submit">Comprar</button>
-  </form>
-</section>
+  <h1><span class="titulo-decorado">Carrito de Compras</span></h1>
 
-<script>
-  const carritoLista = document.getElementById('carrito-lista');
-  const totalDiv = document.getElementById('total');
-  const btnFinalizar = document.getElementById('finalizar-compra');
-  const formularioPago = document.getElementById('formulario-pago');
-  const pagoForm = document.getElementById('pago-form');
+  <section id="carrito-contenido">
+    <ul id="carrito-lista"></ul>
+    <div id="total" class="total"></div>
+    <button id="finalizar-compra">Finalizar compra</button>
+  </section>
 
-  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  <section id="formulario-pago">
+    <h2>Formulario de Pago</h2>
+    <form id="pago-form">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required />
 
-  function mostrarCarrito() {
-    carritoLista.innerHTML = '';
-    if (carrito.length === 0) {
-      carritoLista.innerHTML = '<li>No hay productos en el carrito.</li>';
-      totalDiv.textContent = '';
-      btnFinalizar.style.display = 'none';
-      return;
+      <label for="tarjeta">Número de tarjeta</label>
+      <input type="text" id="tarjeta" name="tarjeta" maxlength="16" required />
+
+      <label for="vencimiento">Fecha de vencimiento</label>
+      <input type="month" id="vencimiento" name="vencimiento" required />
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" maxlength="3" required />
+
+      <button type="submit">Comprar</button>
+    </form>
+  </section>
+
+  <script>
+    const carritoLista = document.getElementById('carrito-lista');
+    const totalDiv = document.getElementById('total');
+    const btnFinalizar = document.getElementById('finalizar-compra');
+    const formularioPago = document.getElementById('formulario-pago');
+    const pagoForm = document.getElementById('pago-form');
+
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    function mostrarCarrito() {
+      carritoLista.innerHTML = '';
+      if (carrito.length === 0) {
+        carritoLista.innerHTML = '<li>No hay productos en el carrito.</li>';
+        totalDiv.textContent = '';
+        btnFinalizar.style.display = 'none';
+        return;
+      }
+
+      btnFinalizar.style.display = 'block';
+      let total = 0;
+
+      carrito.forEach(producto => {
+        const li = document.createElement('li');
+        li.textContent = `${producto.titulo} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
+        carritoLista.appendChild(li);
+        total += producto.precio * producto.cantidad;
+      });
+
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
-    btnFinalizar.style.display = 'block';
-    let total = 0;
-    carrito.forEach(producto => {
-      const li = document.createElement('li');
-      li.textContent = `${producto.titulo} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
-      carritoLista.appendChild(li);
-      total += producto.precio * producto.cantidad;
+
+    btnFinalizar.addEventListener('click', () => {
+      formularioPago.style.display = 'block';
+      window.scrollTo({ top: formularioPago.offsetTop, behavior: 'smooth' });
     });
-    totalDiv.textContent = `Total: $${total.toFixed(2)}`;
-  }
 
-  btnFinalizar.addEventListener('click', () => {
-    formularioPago.style.display = 'block';
-    window.scrollTo({ top: formularioPago.offsetTop, behavior: 'smooth' });
-  });
+    pagoForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const nombre = pagoForm.nombre.value.trim();
+      if (!nombre) return;
 
-  pagoForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const nombre = pagoForm.nombre.value.trim();
-    if (!nombre) return;
-    // Aquí se puede hacer validación extra o procesamiento si quieres
+      localStorage.setItem('comprobante', JSON.stringify({
+        nombre: nombre,
+        items: carrito,
+        total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
+      }));
 
-    localStorage.setItem('comprobante', JSON.stringify({
-      nombre: nombre,
-      items: carrito,
-      total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
-    }));
+      localStorage.removeItem('carrito');
+      window.location.href = 'comprobante.html';
+    });
 
-    localStorage.removeItem('carrito');
-    window.location.href = 'comprobante.html';
-  });
-
-  mostrarCarrito();
-</script>
+    mostrarCarrito();
+  </script>
   <script src="carro.js"></script>
 </body>
 </html>
