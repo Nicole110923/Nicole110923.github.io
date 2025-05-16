@@ -2,98 +2,107 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Comprar - N'C BOOKS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="compra.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito de Compras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Roboto', sans-serif; max-width: 600px; margin: 20px auto; padding: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 8px; }
+    button { cursor: pointer; padding: 8px 12px; margin-top: 10px; }
+    #formulario-pago { display: none; margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
+    label { display: block; margin-bottom: 10px; }
+    input { width: 100%; padding: 6px; box-sizing: border-box; }
+  </style>
 </head>
 <body>
-  <header class="encabezado">
-    <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="registro.html">Registrarse</a>
-      <a href="carritodecompras.html">Carrito</a>
-    </nav>
-  </header>
 
-  <main>
-    <div id="resumen-carrito">
-      <h4>Productos en tu carrito:</h4>
-      <ul id="productos-carrito"></ul>
-      <p><strong>Total a pagar: $<span id="total-a-pagar">0</span></strong></p>
-    </div>
+  <h1>Carrito de Compras</h1>
+  <ul id="carrito-lista"></ul>
+  <p id="total">Total: $0</p>
+  <button id="finalizar-compra">Finalizar compra</button>
 
-    <form id="formulario-compra" class="formulario-compra">
-      <label for="nombre">Nombre del Titular</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Nombre completo del titular" required>
-
-      <label for="direccion">Dirección</label>
-      <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required>
-
-      <label for="tipo-tarjeta">Tipo de Tarjeta</label>
-      <select id="tipo-tarjeta" name="tipo-tarjeta" required>
-        <option value="">Selecciona una opción</option>
-        <option value="visa">Visa</option>
-        <option value="mastercard">MasterCard</option>
-        <option value="amex">American Express</option>
-        <option value="otro">Otro</option>
-      </select>
-
-      <label for="numero">Número de Tarjeta</label>
-      <input type="text" id="numero" name="numero" placeholder="Ingresa tu número de tarjeta" required>
-
-      <label for="expiracion">Fecha de Expiración</label>
-      <input type="month" id="expiracion" name="expiracion" required>
-
-      <label for="cvv">CVV</label>
-      <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="4" required>
-
-      <label for="terminos">
-        <input type="checkbox" id="terminos" name="terminos" required>
-        Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a>.
+  <div id="formulario-pago">
+    <h2>Detalles de Pago</h2>
+    <form id="pago-form">
+      <label>
+        Nombre completo:<br />
+        <input type="text" name="nombre" required />
       </label>
-
-      <button type="submit">Confirmar Compra</button>
+      <label>
+        Dirección:<br />
+        <input type="text" name="direccion" required />
+      </label>
+      <label>
+        Teléfono:<br />
+        <input type="tel" name="telefono" required />
+      </label>
+      <label>
+        Número de tarjeta:<br />
+        <input type="text" name="tarjeta" required maxlength="16" pattern="\d{16}" title="16 dígitos" />
+      </label>
+      <button type="submit">Comprar</button>
     </form>
-  </main>
+  </div>
 
-  <footer>
-    <p class="m">Contactos<br>
-      <a href="https://www.instagram.com/nc_books25/" target="_blank">
-        <i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-        <i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/56666666666" target="_blank">
-        <i class="fab fa-whatsapp"></i></a>
-    </p>
+<script>
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const lista = document.getElementById('carrito-lista');
+  const totalTexto = document.getElementById('total');
+  const btnFinalizar = document.getElementById('finalizar-compra');
+  const formularioPago = document.getElementById('formulario-pago');
+  const pagoForm = document.getElementById('pago-form');
 
-    <p><br>&copy; 2025. Todos los derechos reservados. Nicole Casillas<br>
-    N'C BOOKS.</p>
-  </footer>
-
-  <script src="carro.js"></script>
-  <script>
-    function cargarCarrito() {
-      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-      const productosCarrito = document.getElementById('productos-carrito');
-      const totalElement = document.getElementById('total-a-pagar');
-      
-      let total = 0;
-      productosCarrito.innerHTML = '';
-
-      carrito.forEach(producto => {
-        const li = document.createElement('li');
-        li.textContent = ${producto.nombre} - $${producto.precio} x ${producto.cantidad};
-        productosCarrito.appendChild(li);
-        total += producto.precio * producto.cantidad;
-      });
-
-      totalElement.textContent = total.toFixed(2);
+  // Mostrar items en carrito
+  function mostrarCarrito() {
+    lista.innerHTML = '';
+    if(carrito.length === 0) {
+      lista.innerHTML = '<li>Tu carrito está vacío.</li>';
+      totalTexto.textContent = 'Total: $0';
+      btnFinalizar.disabled = true;
+      return;
     }
+    btnFinalizar.disabled = false;
 
-    window.onload = cargarCarrito;
-  </script>
+    let total = 0;
+    carrito.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.titulo} - $${item.precio} x ${item.cantidad}`;
+      lista.appendChild(li);
+      total += item.precio * item.cantidad;
+    });
+    totalTexto.textContent = `Total: $${total}`;
+  }
+
+  mostrarCarrito();
+
+  btnFinalizar.addEventListener('click', () => {
+    formularioPago.style.display = 'block';
+    btnFinalizar.style.display = 'none';
+  });
+
+  pagoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Datos del formulario
+    const datosPago = {
+      nombre: pagoForm.nombre.value,
+      direccion: pagoForm.direccion.value,
+      telefono: pagoForm.telefono.value,
+      tarjeta: pagoForm.tarjeta.value,
+      carrito: carrito,
+      total: carrito.reduce((sum, i) => sum + i.precio * i.cantidad, 0),
+      fecha: new Date().toLocaleString()
+    };
+    // Guardar datos en sessionStorage para mostrar en comprobante
+    sessionStorage.setItem('datosPago', JSON.stringify(datosPago));
+
+    // Vaciar carrito en localStorage
+    localStorage.removeItem('carrito');
+
+    // Redirigir a comprobante
+    window.location.href = 'comprobante.html';
+  });
+</script>
+
 </body>
 </html>
