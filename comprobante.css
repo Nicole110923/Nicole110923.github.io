@@ -1,162 +1,154 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carrito de Compras - N'C BOOKS</title>
-  <link rel="stylesheet" href="carritodecompras.css">
+body {
+  background-color: #f4efff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  <!-- Fuente profesional -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header class="encabezado">
-    <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="registro.html">Registrarse</a>
-      <a href="carritodecompras.html">Carrito</a>
-    </nav>
-  </header>
+.encabezado {
+  background-color: #d2b4de;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 
-  <main class="contenedor-principal">
-    <img src="logo.png" alt="N'C BOOKS Logo" class="logo">
-    <h1><span class="titulo-decorado">Carrito de Compras</span></h1>
+.contenedor-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-    <section id="carrito-contenido">
-      <ul id="carrito-lista"></ul>
-      <div id="total" class="total"></div>
-      <div class="botones-principales">
-        <button id="finalizar-compra">Finalizar compra</button>
-        <button id="vaciar-carrito">Vaciar carrito</button>
-      </div>
-    </section>
+.eslogan {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #f0e9ff;
+}
 
-    <section id="formulario-pago" style="display: none;">
-      <h2>Formulario de Pago</h2>
-      <form id="pago-form">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" required />
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 
-        <label for="direccion">Dirección</label>
-        <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required>
+.menu a {
+  color: #6c3483;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        <label for="tipo-tarjeta">Tipo de Tarjeta</label>
-        <select id="tipo-tarjeta" name="tipo-tarjeta" required>
-          <option value="">Selecciona una opción</option>
-          <option value="visa">Visa</option>
-          <option value="mastercard">MasterCard</option>
-          <option value="amex">American Express</option>
-          <option value="otro">Otro</option>
-        </select>
+.menu a:hover {
+  background-color: #6c3483;
+  color: white;
+}
 
-        <label for="tarjeta">Número de tarjeta</label>
-        <input type="text" id="tarjeta" name="tarjeta" maxlength="16" required />
+/* Estilos principales del comprobante */
+.contenedor {
+  max-width: 600px;
+  margin: 140px auto 100px;
+  background-color: #f9f4fd;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-        <label for="vencimiento">Fecha de vencimiento</label>
-        <input type="month" id="vencimiento" name="vencimiento" required />
+.contenedor h2 {
+  color: #6c3483;
+  margin-bottom: 20px;
+}
 
-        <label for="cvv">CVV</label>
-        <input type="text" id="cvv" name="cvv" maxlength="3" required />
+.contenedor h3 {
+  margin-top: 30px;
+  color: #4a235a;
+}
 
-        <button type="submit">Comprar</button>
-      </form>
-    </section>
-  </main>
+.contenedor p,
+.contenedor li {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
+}
 
-  <script>
-    const carritoLista = document.getElementById('carrito-lista');
-    const totalDiv = document.getElementById('total');
-    const btnFinalizar = document.getElementById('finalizar-compra');
-    const btnVaciar = document.getElementById('vaciar-carrito');
-    const formularioPago = document.getElementById('formulario-pago');
-    const pagoForm = document.getElementById('pago-form');
+#lista-productos {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
 
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+#lista-productos li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
 
-    function mostrarCarrito() {
-      carritoLista.innerHTML = '';
-      formularioPago.style.display = 'none';
+/* Botón volver al inicio */
+.agregar-carrito {
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  background-color: #6c3483;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
 
-      if (carrito.length === 0) {
-        carritoLista.innerHTML = '<li>No hay productos en el carrito.</li>';
-        totalDiv.textContent = '';
-        btnFinalizar.style.display = 'none';
-        btnVaciar.style.display = 'none';
-        return;
-      }
+.agregar-carrito:hover {
+  background-color: #4a235a;
+}
 
-      btnFinalizar.style.display = 'inline-block';
-      btnVaciar.style.display = 'inline-block';
+/* Footer */
+footer {
+  background-color: #d2b4de;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  margin-top: auto;
+}
 
-      let total = 0;
+footer .menu {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-      carrito.forEach((producto, index) => {
-        const li = document.createElement('li');
-        li.classList.add('item');
-        li.innerHTML = `
-          <img src="${producto.imagen}" alt="${producto.titulo}">
-          <div class="item-info">
-            <strong>${producto.titulo}</strong><br>
-            Cantidad: ${producto.cantidad}<br>
-            Precio: $${(producto.precio * producto.cantidad).toFixed(2)}
-          </div>
-          <button data-index="${index}" class="eliminar-btn">Eliminar</button>
-        `;
-        carritoLista.appendChild(li);
-        total += producto.precio * producto.cantidad;
-      });
+footer .menu a {
+  font-size: 1.3rem;
+  color: #6c3483;
+  transition: color 0.3s ease;
+}
 
-      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+footer .menu a:hover {
+  color: #f0e9ff;
+}
 
-      // Activar botones eliminar
-      document.querySelectorAll('.eliminar-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const index = btn.getAttribute('data-index');
-          carrito.splice(index, 1);
-          localStorage.setItem('carrito', JSON.stringify(carrito));
-          mostrarCarrito();
-        });
-      });
-    }
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor {
+    margin: 140px 20px 120px;
+    padding: 20px;
+  }
 
-    btnFinalizar.addEventListener('click', () => {
-      formularioPago.style.display = 'block';
-      window.scrollTo({ top: formularioPago.offsetTop, behavior: 'smooth' });
-    });
-
-    btnVaciar.addEventListener('click', () => {
-      localStorage.removeItem('carrito');
-      carrito = [];
-      mostrarCarrito();
-    });
-
-    pagoForm.addEventListener('submit', e => {
-      e.preventDefault();
-
-      const nombre = pagoForm.nombre.value.trim();
-      const direccion = pagoForm.direccion.value.trim();
-
-      if (!nombre || !direccion) return;
-
-      const totalCompra = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
-
-      localStorage.setItem('comprobante', JSON.stringify({
-        nombre,
-        direccion,
-        items: carrito,
-        total: totalCompra.toFixed(2),
-        fecha: new Date().toLocaleString()
-      }));
-
-      localStorage.removeItem('carrito');
-      carrito = [];
-      window.location.href = 'comprobante.html';
-    });
-
-    mostrarCarrito();
-  </script>
-</body>
-</html>
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
