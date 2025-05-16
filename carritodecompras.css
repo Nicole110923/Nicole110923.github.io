@@ -1,282 +1,201 @@
+/* Tipografía general */
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #f3e5f5;
+  background-color: #f9f4fc;
   margin: 0;
-  padding: 20px;
-  color: #4a148c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0;
+  color: #333;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+/* Encabezado y menú */
+.encabezado {
+  background-color: #4b007d;
+  padding: 1rem;
+  text-align: center;
 }
 
 .menu a {
   color: white;
+  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 .menu a:hover {
-  background-color: #6c3483;
+  text-decoration: underline;
 }
 
-.encabezado {
-  background-color: #d2b4de;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
+/* Logo */
 .l {
-  width: 120px;
-  height: auto;
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  border-radius: 10px;
-  z-index: 1000;
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
 }
 
+/* Título */
 h1 {
-  color: #6a1b9a;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
   text-align: center;
-  margin-top: 0;
-  width: 100%;
-  max-width: 900px;
+  color: #4b007d;
+  margin-bottom: 20px;
 }
 
+/* Contenedor del carrito */
 #carrito-contenido {
-  max-width: 900px;
-  width: 100%;
-  margin-bottom: 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
   padding: 15px;
-  background-color: #ede7f6;
-  border: 1px solid #d1c4e9;
-  border-radius: 8px;
-  box-sizing: border-box;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .item img {
-  width: 100px;
+  width: 80px;
   height: auto;
   border-radius: 8px;
-  flex-shrink: 0;
 }
 
 .item-info {
-  flex-grow: 1;
-  font-size: 1.1rem;
-  color: #4a148c;
-  word-break: break-word;
+  flex: 1;
+  padding: 0 15px;
 }
 
 .item button {
-  padding: 8px 14px;
-  font-size: 0.95rem;
-  border: none;
-  background-color: #8e24aa;
+  background-color: #d62828;
   color: white;
-  border-radius: 6px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0;
 }
 
 .item button:hover {
-  background-color: #6a1b9a;
+  background-color: #a10c0c;
 }
 
-p.total {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #4a148c;
+/* Total */
+.total {
   text-align: center;
-  margin-bottom: 30px;
-  max-width: 900px;
-  width: 100%;
+  font-size: 1.3em;
+  margin: 20px 0;
+  color: #4b007d;
 }
 
+/* Botones principales */
 .botones-principales {
-  max-width: 900px;
-  width: 100%;
   display: flex;
-  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 800px;
 }
 
-.botones-principales button {
-  padding: 12px 25px;
-  font-size: 1rem;
-  border: none;
-  background-color: #8e24aa;
+.botones-principales button,
+.botones-principales a button {
+  background-color: #7a00cc;
   color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.botones-principales button:hover {
-  background-color: #6a1b9a;
-}
-
-.botones-principales a {
-  text-decoration: none;
-}
-
-main {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto 40px auto;
-  box-sizing: border-box;
-}
-
-form#formulario-compra {
-  background-color: #f3e5f5;
-  border: 1px solid #d1c4e9;
+  border: none;
+  padding: 10px 16px;
   border-radius: 8px;
-  padding: 25px 30px;
-  box-shadow: 0 4px 6px rgb(178 139 224 / 0.3);
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botones-principales button:hover,
+.botones-principales a button:hover {
+  background-color: #5c0099;
+}
+
+/* Formulario */
+main {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: none;
 }
 
-form#formulario-compra h2 {
-  margin-bottom: 20px;
-  color: #6a1b9a;
+form h2 {
   text-align: center;
-  font-weight: 700;
+  color: #4b007d;
+  margin-bottom: 20px;
 }
 
 form label {
   display: block;
   margin-top: 15px;
-  color: #4a148c;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
 }
 
-form input[type="text"],
-form input[type="month"],
+form input,
 form select {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  font-size: 1rem;
-  border: 1px solid #ce93d8;
-  border-radius: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-form input[type="text"]:focus,
-form input[type="month"]:focus,
-form select:focus {
-  border-color: #8e24aa;
-  outline: none;
 }
 
 form input[type="checkbox"] {
   width: auto;
   margin-right: 8px;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-form label a {
-  color: #8e24aa;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-form label a:hover {
-  text-decoration: underline;
 }
 
 form button[type="submit"] {
-  width: 100%;
-  margin-top: 25px;
-  background-color: #ab47bc;
-  font-size: 1.2rem;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: none;
+  background-color: #4b007d;
   color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
 }
 
 form button[type="submit"]:hover {
-  background-color: #8e24aa;
+  background-color: #36005c;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
   .item {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .item img {
-    width: 80px;
+    margin-bottom: 10px;
   }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  form#formulario-compra {
-    padding: 20px;
-  }
-  
+
   .botones-principales {
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
   }
-  
-  .botones-principales button,
-  .botones-principales a button {
-    width: 100%;
+
+  .botones-principales button {
+    width: 90%;
   }
-}
 
-.ll {
-  font-size: 1.1rem;
-  padding: 10px 20px;
-  background-color: mediumpurple;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.ll:hover, 
-.a:hover {
-  background-color: #6c3483;
+  main {
+    margin: 20px;
+    padding: 15px;
+  }
 }
