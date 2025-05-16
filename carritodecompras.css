@@ -4,15 +4,20 @@ body {
   margin: 0;
   padding: 20px;
   color: #4a148c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .l {
   width: 120px;
   height: auto;
-  position: absolute;
+  position: fixed;
   right: 15px;
   top: 15px;
   border-radius: 10px;
+  z-index: 1000;
 }
 
 h1 {
@@ -20,11 +25,15 @@ h1 {
   margin-bottom: 30px;
   font-size: 2.5rem;
   text-align: center;
+  margin-top: 0;
+  width: 100%;
+  max-width: 900px;
 }
 
 #carrito-contenido {
   max-width: 900px;
-  margin: 0 auto 20px auto;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .item {
@@ -36,22 +45,61 @@ h1 {
   background-color: #ede7f6;
   border: 1px solid #d1c4e9;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .item img {
   width: 100px;
   height: auto;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .item-info {
   flex-grow: 1;
   font-size: 1.1rem;
   color: #4a148c;
+  word-break: break-word;
 }
 
-button {
-  padding: 10px 20px;
+.item button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: none;
+  background-color: #8e24aa;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.item button:hover {
+  background-color: #6a1b9a;
+}
+
+p.total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4a148c;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.botones-principales {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.botones-principales button {
+  padding: 12px 25px;
   font-size: 1rem;
   border: none;
   background-color: #8e24aa;
@@ -61,29 +109,19 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.botones-principales button:hover {
   background-color: #6a1b9a;
 }
 
-button:focus {
-  outline: none;
-}
-
-a button {
-  margin-left: 10px;
-}
-
-p.total {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #4a148c;
-  text-align: center;
-  margin-bottom: 30px;
+.botones-principales a {
+  text-decoration: none;
 }
 
 main {
   max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  box-sizing: border-box;
 }
 
 form#formulario-compra {
@@ -92,12 +130,14 @@ form#formulario-compra {
   border-radius: 8px;
   padding: 25px 30px;
   box-shadow: 0 4px 6px rgb(178 139 224 / 0.3);
+  display: none;
 }
 
 form#formulario-compra h2 {
   margin-bottom: 20px;
   color: #6a1b9a;
   text-align: center;
+  font-weight: 700;
 }
 
 form label {
@@ -105,6 +145,7 @@ form label {
   margin-top: 15px;
   color: #4a148c;
   font-weight: 600;
+  font-size: 1rem;
 }
 
 form input[type="text"],
@@ -117,17 +158,27 @@ form select {
   border: 1px solid #ce93d8;
   border-radius: 6px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="month"]:focus,
+form select:focus {
+  border-color: #8e24aa;
+  outline: none;
 }
 
 form input[type="checkbox"] {
   width: auto;
   margin-right: 8px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 form label a {
   color: #8e24aa;
   text-decoration: none;
+  font-weight: 600;
 }
 
 form label a:hover {
@@ -141,6 +192,10 @@ form button[type="submit"] {
   font-size: 1.2rem;
   padding: 12px;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  color: white;
 }
 
 form button[type="submit"]:hover {
@@ -160,5 +215,13 @@ form button[type="submit"]:hover {
   }
   form#formulario-compra {
     padding: 20px;
+  }
+  .botones-principales {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .botones-principales button,
+  .botones-principales a button {
+    width: 100%;
   }
 }
