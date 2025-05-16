@@ -7,28 +7,49 @@
   <link rel="stylesheet" href="comprobante.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="comprobante">
+  <header class="encabezado">
+    <div class="contenedor-logo">
+      <h1>N'C BOOKS</h1>
+    </div>
+    <p class="eslogan">Tu mundo de libros en un solo lugar</p>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html">Catálogo</a>
+      <a href="carritodecompras.html">Carrito</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
     <h2>Comprobante de Compra</h2>
     <p><strong>Nombre:</strong> <span id="nombre-cliente"></span></p>
     <p><strong>Dirección:</strong> <span id="direccion-cliente"></span></p>
     <p><strong>Fecha:</strong> <span id="fecha-compra"></span></p>
 
     <h3>Productos:</h3>
-    <div id="lista-productos"></div>
+    <ul id="lista-productos"></ul>
 
     <h3>Total: $<span id="total-compra"></span></h3>
 
-    <button class="btn-volver" onclick="volverAlInicio()">Volver al inicio</button>
-  </div>
+    <button class="agregar-carrito" onclick="volverAlInicio()">Volver al inicio</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 N'C BOOKS - Todos los derechos reservados</p>
+    <div class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html">Catálogo</a>
+      <a href="carritodecompras.html">Carrito</a>
+    </div>
+  </footer>
 
   <script>
     const comprobante = JSON.parse(localStorage.getItem('comprobante'));
 
     if (!comprobante) {
-      document.body.innerHTML = "<p>No hay datos de compra disponibles.</p>";
+      document.querySelector('.contenedor').innerHTML = "<p>No hay datos de compra disponibles.</p>";
     } else {
       document.getElementById('nombre-cliente').textContent = comprobante.nombre;
       document.getElementById('direccion-cliente').textContent = comprobante.direccion;
@@ -37,14 +58,13 @@
 
       const lista = document.getElementById('lista-productos');
       comprobante.items.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('item');
-        div.innerHTML = `
+        const li = document.createElement('li');
+        li.innerHTML = `
           <strong>${item.titulo}</strong><br>
           Cantidad: ${item.cantidad} &nbsp;&nbsp;
           Subtotal: $${(item.precio * item.cantidad).toFixed(2)}
         `;
-        lista.appendChild(div);
+        lista.appendChild(li);
       });
     }
 
