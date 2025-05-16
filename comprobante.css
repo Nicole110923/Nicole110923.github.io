@@ -28,12 +28,6 @@ body {
   margin-bottom: 10px;
 }
 
-.logo {
-  height: 60px;
-  width: auto;
-  border-radius: 8px;
-}
-
 .eslogan {
   font-size: 1.1rem;
   font-style: italic;
@@ -64,67 +58,44 @@ body {
   color: white;
 }
 
+/* Estilos principales del comprobante */
 .contenedor {
-  max-width: 900px;
-  margin: 100px auto 100px;
+  max-width: 600px;
+  margin: 140px auto 100px;
   background-color: #f9f4fd;
   padding: 30px;
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  flex-grow: 1;
-  overflow-y: auto;
 }
 
-.contact-text {
-  flex: 1;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.contact-text p {
-  margin: 15px 0;
-}
-
-.contact-text a {
+.contenedor h2 {
   color: #6c3483;
-  text-decoration: none;
-  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.contact-text a:hover {
-  text-decoration: underline;
-}
-
-.contact-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.contact-icons a {
-  color: #6c3483;
-  text-decoration: none;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.3s ease;
-}
-
-.contact-icons a:hover {
+.contenedor h3 {
+  margin-top: 30px;
   color: #4a235a;
 }
 
-.oyp {
-  width: 250px;
-  border-radius: 12px;
-  object-fit: cover;
+.contenedor p, .contenedor li {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
 }
 
+#lista-productos {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+#lista-productos li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Botón volver al inicio */
 .agregar-carrito {
   font-size: 1.1rem;
   padding: 12px 28px;
@@ -134,23 +105,21 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
 .agregar-carrito:hover {
   background-color: #4a235a;
 }
 
+/* Footer */
 footer {
   background-color: #d2b4de;
   color: white;
   text-align: center;
   padding: 20px;
   font-size: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+  margin-top: auto;
 }
 
 footer .menu {
@@ -170,20 +139,15 @@ footer .menu a:hover {
   color: #f0e9ff;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .contenedor {
+    margin: 140px 20px 120px;
+    padding: 20px;
+  }
+
+  .menu {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 100px 20px 120px;
-  }
-
-  .oyp {
-    width: 80%;
-    margin-top: 20px;
-  }
-
-  .contact-icons {
-    align-items: center;
+    gap: 10px;
   }
 }
