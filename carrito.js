@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carrito.length === 0) {
       contenedor.innerHTML = '<p>Tu carrito está vacío.</p>';
-      formulario.style.display = 'none'; // Ocultar formulario si no hay items
+      // Oculta formulario solo si no hay productos
+      if (formulario) formulario.style.display = 'none';
     } else {
       carrito.forEach((item, index) => {
         const div = document.createElement('div');
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedor.appendChild(div);
         total += item.precio * item.cantidad;
       });
-      formulario.style.display = 'none'; // Ocultar formulario al re-renderizar
+      // No ocultar el formulario aquí para no cerrarlo si ya está visible
     }
 
     totalTexto.textContent = `Total: $${total.toFixed(2)}`;
@@ -35,15 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Delegación de evento para eliminar items
   contenedor.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-eliminar')) {
-      const index = e.target.getAttribute('data-index');
-      eliminarItem(Number(index));
+      const index = Number(e.target.getAttribute('data-index'));
+      eliminarItem(index);
     }
   });
 
   function eliminarItem(index) {
-    carrito.splice(index, 1);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    renderCarrito();
+    if (index >= 0 && index < carrito.length) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      renderCarrito();
+      if (carrito.length === 0 && formulario) formulario.style.display = 'none';
+    }
   }
 
   window.vaciarCarrito = () => {
@@ -51,20 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
       carrito = [];
       localStorage.setItem('carrito', JSON.stringify(carrito));
       renderCarrito();
-      formulario.style.display = 'none';
+      if (formulario) formulario.style.display = 'none';
     }
   };
 
   window.mostrarFormulario = () => {
     if (carrito.length === 0) {
       alert('Tu carrito está vacío.');
-    } else {
+    } else if (formulario) {
       formulario.style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      formulario.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Validar inputs numéricos en tiempo real
+  // Validación inputs numéricos
   const inputNumero = document.getElementById('numero');
   if (inputNumero) {
     inputNumero.addEventListener('input', e => {
@@ -78,34 +82,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Manejo de envío del formulario
-  formulario.addEventListener('submit', e => {
-    e.preventDefault();
+  // Manejo envío formulario
+  if (formulario) {
+    formulario.addEventListener('submit', e => {
+      e.preventDefault();
 
-    if (!formulario.checkValidity()) {
-      alert('Por favor, completa todos los campos correctamente.');
-      return;
-    }
+      if (!formulario.checkValidity()) {
+        alert('Por favor, completa todos los campos correctamente.');
+        return;
+      }
 
-    const nombre = formulario.nombre.value.trim();
-    const direccion = formulario.direccion.value.trim();
-    const tipoTarjeta = formulario['tipo-tarjeta'].value;
-    const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+      const nombre = formulario.nombre.value.trim();
+      const direccion = formulario.direccion.value.trim();
+      const tipoTarjeta = formulario['tipo-tarjeta'].value;
+      const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-    const comprobante = {
-      nombre,
-      direccion,
-      tipoTarjeta,
-      total: total.toFixed(2),
-      carrito
-    };
+      const comprobante = {
+        nombre,
+        direccion,
+        tipoTarjeta,
+        total: total.toFixed(2),
+        carrito
+      };
 
-    sessionStorage.setItem('comprobante', JSON.stringify(comprobante));
-    carrito = [];
-    localStorage.removeItem('carrito');
-    alert('¡Gracias por tu compra! Serás redirigido al comprobante.');
-    window.location.href = 'comprobante.html';
-  });
+      sessionStorage.setItem('comprobante', JSON.stringify(comprobante));
+      carrito = [];
+      localStorage.removeItem('carrito');
+      alert('¡Gracias por tu compra! Serás redirigido al comprobante.');
+      window.location.href = 'comprobante.html';
+    });
+  }
 
   renderCarrito();
 });
