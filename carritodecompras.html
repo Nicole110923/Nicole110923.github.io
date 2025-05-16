@@ -14,11 +14,15 @@
 <body>
   <header class="encabezado">
     <nav class="menu">
-      <img src="logo.png" alt="N'C BOOKS Logo" style="height:40px; vertical-align:middle;">
-      <a href="index.html">Inicio</a>
-      <a href="categora.html">Catalogo</a>
-      <a href="registro.html">Registrarse</a>
-      <a href="carritodecompras.html">Carrito</a>
+      <div class="logo-container">
+        <img src="logo.png" alt="N'C BOOKS Logo" class="logo">
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carritodecompras.html">Carrito</a>
+      </div>
     </nav>
   </header>
 
@@ -79,7 +83,6 @@
       carrito.forEach(producto => {
         const li = document.createElement('li');
         li.classList.add('item');
-
         li.innerHTML = `
           <img src="${producto.imagen}" alt="${producto.titulo}">
           <div class="item-info">
