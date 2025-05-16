@@ -42,7 +42,18 @@
     <form id="pago-form">
       <label for="nombre">Nombre completo</label>
       <input type="text" id="nombre" name="nombre" required />
+      
+  <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección de facturación" required>
 
+      <label for="tipo-tarjeta">Tipo de Tarjeta</label>
+      <select id="tipo-tarjeta" name="tipo-tarjeta" required>
+        <option value="">Selecciona una opción</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="amex">American Express</option>
+        <option value="otro">Otro</option>
+      </select>
       <label for="tarjeta">Número de tarjeta</label>
       <input type="text" id="tarjeta" name="tarjeta" maxlength="16" required />
 
