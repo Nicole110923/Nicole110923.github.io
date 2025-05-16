@@ -246,3 +246,18 @@ form button[type="submit"]:hover {
     width: 100%;
   }
 }
+.ll {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  background-color: mediumpurple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ll:hover, .a:hover {
+  background-color: #6c3483;
+}
