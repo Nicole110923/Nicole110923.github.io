@@ -16,7 +16,16 @@ body {
   flex-wrap: wrap;
   margin-top: 10px;
 }
-
+.encabezado {
+  background-color: #d2b4de;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 .menu a {
   color: white;
   text-decoration: none;
