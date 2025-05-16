@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   const contenedor = document.getElementById('carrito-contenido');
   const totalTexto = document.getElementById('total');
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (carrito.length === 0) {
       contenedor.innerHTML = '<p>Tu carrito está vacío.</p>';
+      formulario.style.display = 'none'; // Ocultar formulario si no hay items
     } else {
       carrito.forEach((item, index) => {
         const div = document.createElement('div');
@@ -20,23 +21,32 @@ document.addEventListener('DOMContentLoaded', function () {
             <strong>${item.nombre}</strong><br>
             $${item.precio} x ${item.cantidad}
           </div>
-          <button onclick="eliminarItem(${index})">Eliminar</button>
+          <button type="button" data-index="${index}" class="btn-eliminar">Eliminar</button>
         `;
         contenedor.appendChild(div);
         total += item.precio * item.cantidad;
       });
+      formulario.style.display = 'none'; // Ocultar formulario al re-renderizar
     }
 
     totalTexto.textContent = `Total: $${total.toFixed(2)}`;
   }
 
-  window.eliminarItem = function(index) {
+  // Delegación de evento para eliminar items
+  contenedor.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-eliminar')) {
+      const index = e.target.getAttribute('data-index');
+      eliminarItem(Number(index));
+    }
+  });
+
+  function eliminarItem(index) {
     carrito.splice(index, 1);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     renderCarrito();
-  };
+  }
 
-  window.vaciarCarrito = function() {
+  window.vaciarCarrito = () => {
     if (confirm('¿Vaciar el carrito?')) {
       carrito = [];
       localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  window.mostrarFormulario = function() {
+  window.mostrarFormulario = () => {
     if (carrito.length === 0) {
       alert('Tu carrito está vacío.');
     } else {
@@ -54,14 +64,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  document.getElementById('numero').addEventListener('input', e => {
-    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16);
-  });
+  // Validar inputs numéricos en tiempo real
+  const inputNumero = document.getElementById('numero');
+  if (inputNumero) {
+    inputNumero.addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16);
+    });
+  }
+  const inputCVV = document.getElementById('cvv');
+  if (inputCVV) {
+    inputCVV.addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+    });
+  }
 
-  document.getElementById('cvv').addEventListener('input', e => {
-    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
-  });
-
+  // Manejo de envío del formulario
   formulario.addEventListener('submit', e => {
     e.preventDefault();
 
