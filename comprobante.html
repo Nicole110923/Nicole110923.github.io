@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Comprobante de Compra</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 10px; }
-    h1 { color: green; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 6px; }
-    .info { margin-top: 15px; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprobante de Compra - N'C BOOKS</title>
+  <link rel="stylesheet" href="comprobante.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="comprobante">
+    <h2>Comprobante de Compra</h2>
+    <p><strong>Nombre:</strong> <span id="nombre-cliente"></span></p>
+    <p><strong>Dirección:</strong> <span id="direccion-cliente"></span></p>
+    <p><strong>Fecha:</strong> <span id="fecha-compra"></span></p>
 
-  <h1>Gracias por tu compra!</h1>
-  <div id="comprobante"></div>
+    <h3>Productos:</h3>
+    <div id="lista-productos"></div>
+
+    <h3>Total: $<span id="total-compra"></span></h3>
+
+    <button class="btn-volver" onclick="volverAlInicio()">Volver al inicio</button>
+  </div>
 
   <script>
-    const datosPago = JSON.parse(sessionStorage.getItem('datosPago'));
+    const comprobante = JSON.parse(localStorage.getItem('comprobante'));
 
-    const cont = document.getElementById('comprobante');
-
-    if (!datosPago) {
-      cont.innerHTML = '<p>No hay información de compra disponible.</p>';
+    if (!comprobante) {
+      document.body.innerHTML = "<p>No hay datos de compra disponibles.</p>";
     } else {
-      let html = `<h2>Detalles del pedido</h2>`;
-      html += `<p><strong>Fecha:</strong> ${datosPago.fecha}</p>`;
-      html += `<p><strong>Nombre:</strong> ${datosPago.nombre}</p>`;
-      html += `<p><strong>Dirección:</strong> ${datosPago.direccion}</p>`;
-      html += `<p><strong>Teléfono:</strong> ${datosPago.telefono}</p>`;
+      document.getElementById('nombre-cliente').textContent = comprobante.nombre;
+      document.getElementById('direccion-cliente').textContent = comprobante.direccion;
+      document.getElementById('fecha-compra').textContent = comprobante.fecha;
+      document.getElementById('total-compra').textContent = comprobante.total;
 
-      html += `<h3>Productos:</h3><ul>`;
-      datosPago.carrito.forEach(item => {
-        html += `<li>${item.titulo} - $${item.precio} x ${item.cantidad}</li>`;
+      const lista = document.getElementById('lista-productos');
+      comprobante.items.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('item');
+        div.innerHTML = `
+          <strong>${item.titulo}</strong><br>
+          Cantidad: ${item.cantidad} &nbsp;&nbsp;
+          Subtotal: $${(item.precio * item.cantidad).toFixed(2)}
+        `;
+        lista.appendChild(div);
       });
-      html += `</ul>`;
+    }
 
-      html += `<p><strong>Total pagado:</strong> $${datosPago.total}</p>`;
-
-      cont.innerHTML = html;
+    function volverAlInicio() {
+      localStorage.removeItem('comprobante');
+      window.location.href = 'index.html';
     }
   </script>
-
 </body>
 </html>
