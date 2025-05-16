@@ -1,108 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carrito de Compras</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Roboto', sans-serif; max-width: 600px; margin: 20px auto; padding: 10px; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 8px; }
-    button { cursor: pointer; padding: 8px 12px; margin-top: 10px; }
-    #formulario-pago { display: none; margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
-    label { display: block; margin-bottom: 10px; }
-    input { width: 100%; padding: 6px; box-sizing: border-box; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carrito de Compras - N'C BOOKS</title>
+<style>
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f9f4fc;
+    margin: 0;
+    padding: 20px;
+    color: #4b007d;
+    text-align: center;
+  }
+  h1 {
+    color: #4b007d;
+    margin-bottom: 30px;
+  }
+  #carrito-contenido {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(75, 0, 125, 0.15);
+    text-align: left;
+  }
+  #carrito-lista {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  #carrito-lista li {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3e5f5;
+    border: 1px solid #d1c4e9;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(75, 0, 125, 0.1);
+    color: #4b007d;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  #total {
+    font-size: 1.4em;
+    margin: 20px auto;
+    color: #4b007d;
+    font-weight: 700;
+  }
+  #finalizar-compra {
+    background-color: #7a00cc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    min-width: 140px;
+    margin: 0 auto;
+    display: block;
+  }
+  #finalizar-compra:hover {
+    background-color: #590099;
+  }
+  #formulario-pago {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(75, 0, 125, 0.15);
+    text-align: left;
+    display: none;
+  }
+  #formulario-pago h2 {
+    text-align: center;
+    color: #4b007d;
+    margin-bottom: 25px;
+    font-weight: 700;
+  }
+  #pago-form label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 600;
+    color: #4b007d;
+  }
+  #pago-form input[type="text"],
+  #pago-form input[type="month"],
+  #pago-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ce93d8;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  #pago-form input[type="text"]:focus,
+  #pago-form input[type="month"]:focus,
+  #pago-form select:focus {
+    border-color: #7a00cc;
+    outline: none;
+  }
+  #pago-form button[type="submit"] {
+    background-color: #7a00cc;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  #pago-form button[type="submit"]:hover {
+    background-color: #590099;
+  }
+  @media (max-width: 600px) {
+    #carrito-lista li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #finalizar-compra {
+      width: 100%;
+      min-width: unset;
+    }
+    #formulario-pago {
+      margin: 20px 10px;
+      padding: 20px;
+    }
+  }
+</style>
 </head>
 <body>
-
-  <h1>Carrito de Compras</h1>
+<h1>Carrito de Compras</h1>
+<section id="carrito-contenido">
   <ul id="carrito-lista"></ul>
-  <p id="total">Total: $0</p>
+  <div id="total"></div>
   <button id="finalizar-compra">Finalizar compra</button>
+</section>
 
-  <div id="formulario-pago">
-    <h2>Detalles de Pago</h2>
-    <form id="pago-form">
-      <label>
-        Nombre completo:<br />
-        <input type="text" name="nombre" required />
-      </label>
-      <label>
-        Dirección:<br />
-        <input type="text" name="direccion" required />
-      </label>
-      <label>
-        Teléfono:<br />
-        <input type="tel" name="telefono" required />
-      </label>
-      <label>
-        Número de tarjeta:<br />
-        <input type="text" name="tarjeta" required maxlength="16" pattern="\d{16}" title="16 dígitos" />
-      </label>
-      <button type="submit">Comprar</button>
-    </form>
-  </div>
+<section id="formulario-pago">
+  <h2>Formulario de Pago</h2>
+  <form id="pago-form">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required />
+    <label for="tarjeta">Número de tarjeta</label>
+    <input type="text" id="tarjeta" name="tarjeta" maxlength="16" required />
+    <label for="vencimiento">Fecha de vencimiento</label>
+    <input type="month" id="vencimiento" name="vencimiento" required />
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" name="cvv" maxlength="3" required />
+    <button type="submit">Comprar</button>
+  </form>
+</section>
 
 <script>
-  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-  const lista = document.getElementById('carrito-lista');
-  const totalTexto = document.getElementById('total');
+  const carritoLista = document.getElementById('carrito-lista');
+  const totalDiv = document.getElementById('total');
   const btnFinalizar = document.getElementById('finalizar-compra');
   const formularioPago = document.getElementById('formulario-pago');
   const pagoForm = document.getElementById('pago-form');
 
-  // Mostrar items en carrito
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
   function mostrarCarrito() {
-    lista.innerHTML = '';
-    if(carrito.length === 0) {
-      lista.innerHTML = '<li>Tu carrito está vacío.</li>';
-      totalTexto.textContent = 'Total: $0';
-      btnFinalizar.disabled = true;
+    carritoLista.innerHTML = '';
+    if (carrito.length === 0) {
+      carritoLista.innerHTML = '<li>No hay productos en el carrito.</li>';
+      totalDiv.textContent = '';
+      btnFinalizar.style.display = 'none';
       return;
     }
-    btnFinalizar.disabled = false;
-
+    btnFinalizar.style.display = 'block';
     let total = 0;
-    carrito.forEach(item => {
+    carrito.forEach(producto => {
       const li = document.createElement('li');
-      li.textContent = `${item.titulo} - $${item.precio} x ${item.cantidad}`;
-      lista.appendChild(li);
-      total += item.precio * item.cantidad;
+      li.textContent = `${producto.titulo} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
+      carritoLista.appendChild(li);
+      total += producto.precio * producto.cantidad;
     });
-    totalTexto.textContent = `Total: $${total}`;
+    totalDiv.textContent = `Total: $${total.toFixed(2)}`;
   }
-
-  mostrarCarrito();
 
   btnFinalizar.addEventListener('click', () => {
     formularioPago.style.display = 'block';
-    btnFinalizar.style.display = 'none';
+    window.scrollTo({ top: formularioPago.offsetTop, behavior: 'smooth' });
   });
 
-  pagoForm.addEventListener('submit', (e) => {
+  pagoForm.addEventListener('submit', e => {
     e.preventDefault();
-    // Datos del formulario
-    const datosPago = {
-      nombre: pagoForm.nombre.value,
-      direccion: pagoForm.direccion.value,
-      telefono: pagoForm.telefono.value,
-      tarjeta: pagoForm.tarjeta.value,
-      carrito: carrito,
-      total: carrito.reduce((sum, i) => sum + i.precio * i.cantidad, 0),
-      fecha: new Date().toLocaleString()
-    };
-    // Guardar datos en sessionStorage para mostrar en comprobante
-    sessionStorage.setItem('datosPago', JSON.stringify(datosPago));
+    const nombre = pagoForm.nombre.value.trim();
+    if (!nombre) return;
+    // Aquí se puede hacer validación extra o procesamiento si quieres
 
-    // Vaciar carrito en localStorage
+    localStorage.setItem('comprobante', JSON.stringify({
+      nombre: nombre,
+      items: carrito,
+      total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
+    }));
+
     localStorage.removeItem('carrito');
-
-    // Redirigir a comprobante
     window.location.href = 'comprobante.html';
   });
-</script>
 
+  mostrarCarrito();
+</script>
 </body>
 </html>
