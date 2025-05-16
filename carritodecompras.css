@@ -1,29 +1,49 @@
-/* Tipografía general */
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía general y fondo */
 body {
   font-family: 'Lato', sans-serif;
   background-color: #f9f4fc;
-  margin: 0;
-  padding: 20px;
   color: #4b007d;
   text-align: center;
+  padding-top: 70px; /* espacio para encabezado fijo */
 }
 
 /* Encabezado y menú */
 .encabezado {
   background-color: #d2b4de;
   color: white;
-  padding: 10px;
-  text-align: center;
-  position: sticky;
+  padding: 10px 20px;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.menu {
-  margin-top: 20px;
+/* Contenedor del logo */
+.logo-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+/* Menú de navegación */
+.menu {
+  display: flex;
   gap: 30px;
   flex-wrap: wrap;
 }
@@ -45,7 +65,7 @@ body {
 /* Título */
 h1 {
   color: #4b007d;
-  margin-bottom: 30px;
+  margin: 30px auto;
   font-size: 2.2em;
 }
 
@@ -65,7 +85,7 @@ h1 {
   text-align: left;
 }
 
-/* Item carrito */
+/* Item del carrito */
 .item {
   display: flex;
   align-items: center;
@@ -114,10 +134,12 @@ h1 {
   margin: 20px auto;
   color: #4b007d;
   font-weight: 700;
+  text-align: center;
 }
 
 /* Botón finalizar compra */
-#finalizar-compra {
+#finalizar-compra,
+#vaciar-carrito {
   background-color: #7a00cc;
   color: white;
   border: none;
@@ -127,12 +149,19 @@ h1 {
   cursor: pointer;
   font-weight: 700;
   transition: background-color 0.3s;
-  display: block;
-  margin: 20px auto;
+  margin: 10px 10px;
 }
 
-#finalizar-compra:hover {
+#finalizar-compra:hover,
+#vaciar-carrito:hover {
   background-color: #590099;
+}
+
+/* Contenedor botones */
+.botones-principales {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Formulario de pago */
@@ -198,7 +227,6 @@ form button[type="submit"]:hover {
   background-color: #590099;
 }
 
-/* Links dentro del formulario */
 form a {
   color: #7a00cc;
   text-decoration: underline;
@@ -206,6 +234,23 @@ form a {
 
 /* Responsive */
 @media (max-width: 600px) {
+  .encabezado {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .logo {
+    height: 36px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
   .item {
     flex-direction: column;
     align-items: flex-start;
@@ -215,17 +260,19 @@ form a {
     margin-bottom: 10px;
   }
 
-  .menu {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   #formulario-pago {
     margin: 20px 10px;
     padding: 20px;
   }
 
-  #finalizar-compra {
+  #finalizar-compra,
+  #vaciar-carrito {
     width: 100%;
+    margin: 10px 0;
+  }
+
+  .botones-principales {
+    flex-direction: column;
+    gap: 10px;
   }
 }
