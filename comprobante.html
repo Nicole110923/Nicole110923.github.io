@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Comprobante de Compra - N'C BOOKS</title>
-  <link rel="stylesheet" href="comprobante.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="comprobante.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
   <header class="encabezado">
@@ -33,15 +36,17 @@
   </main>
 
   <footer>
-    
     <div class="menu">
-     <a href="https://www.instagram.com/nc_books25/" target="_blank"> 
-    <i class="fab fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
-    <i class="fab fa-tiktok"></i></a>
-<a href="https://wa.me/56666666666" target="_blank">
-    <i class="fab fa-whatsapp"></i></a></p>
-<p>&copy; 2025 N'C BOOKS - Todos los derechos reservados</p>
+      <a href="https://www.instagram.com/nc_books25/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@nc_books25?_t=ZM-8ve50Um5XSY&_r=1" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://wa.me/56666666666" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <p>&copy; 2025 N'C BOOKS - Todos los derechos reservados</p>
     </div>
   </footer>
 
@@ -49,7 +54,7 @@
     const comprobante = JSON.parse(localStorage.getItem('comprobante'));
 
     if (!comprobante) {
-      document.querySelector('.contenedor').innerHTML = "<p>No hay datos de compra disponibles.</p>";
+      document.querySelector('.contenedor').innerHTML = '<p>No hay datos de compra disponibles.</p>';
     } else {
       document.getElementById('nombre-cliente').textContent = comprobante.nombre;
       document.getElementById('direccion-cliente').textContent = comprobante.direccion;
@@ -60,7 +65,7 @@
       comprobante.items.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
-          <strong>${item.titulo}</strong><br>
+          <strong>${item.nombre}</strong><br>
           Cantidad: ${item.cantidad} &nbsp;&nbsp;
           Subtotal: $${(item.precio * item.cantidad).toFixed(2)}
         `;
