@@ -3,107 +3,92 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: #f9f4fc;
   margin: 0;
-  padding: 0;
-  color: #333;
+  padding: 20px 15px;
+  color: #4b007d;
 }
 
-/* Encabezado y menú */
-.encabezado {
-  background-color: #4b007d;
-  padding: 1rem;
-  text-align: center;
-}
-
-.menu a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
-/* Logo */
-.l {
-  display: block;
-  margin: 20px auto;
-  max-width: 150px;
-}
-
-/* Título */
+/* Encabezado */
 h1 {
   text-align: center;
   color: #4b007d;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
-/* Contenedor del carrito: SIEMPRE visible */
+/* Contenedor del carrito */
 #carrito-contenido {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 10px rgba(75, 0, 125, 0.1);
 }
 
-/* Item carrito */
+/* Item del carrito */
 .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #f4e7fc;
+  border: 1px solid #d1b3f0;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(75, 0, 125, 0.1);
+  gap: 15px;
 }
 
 .item img {
   width: 80px;
-  height: auto;
+  height: 100px;
+  object-fit: cover;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .item-info {
   flex: 1;
   padding: 0 15px;
+  color: #4b007d;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .item button {
-  background-color: #d62828;
+  background-color: #a020f0;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
 
 .item button:hover {
-  background-color: #a10c0c;
+  background-color: #7a00cc;
 }
 
-/* Total */
-.total {
+/* Texto total */
+#total {
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.4rem;
   margin: 20px 0;
+  font-weight: 700;
   color: #4b007d;
 }
 
-/* Botones principales para pagar y vaciar */
+/* Botones principales (Pagar y Vaciar) */
 .botones-principales {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px auto;
-  padding: 10px;
+  gap: 15px;
   max-width: 800px;
+  margin: 0 auto 30px auto;
+  flex-wrap: wrap;
 }
 
 .botones-principales button,
@@ -111,73 +96,100 @@ h1 {
   background-color: #7a00cc;
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 1em;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+  min-width: 130px;
+  text-align: center;
 }
 
 .botones-principales button:hover,
 .botones-principales a button:hover {
-  background-color: #5c0099;
+  background-color: #590099;
 }
 
-/* Formulario: oculto por defecto */
+/* Formulario de compra */
 main {
   max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  margin: 0 auto 40px auto;
+  padding: 25px;
+  background-color: #fff;
+  border: 1px solid #d1b3f0;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  display: none; /* lo mantenemos oculto, se muestra con JS */
+  box-shadow: 0 2px 12px rgba(75, 0, 125, 0.12);
+  display: none; /* Se muestra con JS */
 }
 
 form h2 {
   text-align: center;
   color: #4b007d;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.8rem;
 }
 
-form label {
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+legend {
+  font-weight: 700;
+  color: #6a1b9a;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+label {
   display: block;
   margin-top: 15px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 600;
+  color: #4b007d;
 }
 
-form input,
-form select {
+input,
+select {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #ce93d8;
   box-sizing: border-box;
+  font-size: 1rem;
+  color: #4b007d;
 }
 
-form input[type="checkbox"] {
+input[type="checkbox"] {
   width: auto;
   margin-right: 8px;
+  vertical-align: middle;
 }
 
 form button[type="submit"] {
-  background-color: #4b007d;
+  background-color: #7a00cc;
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1em;
-  margin-top: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-top: 25px;
   width: 100%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
 }
 
 form button[type="submit"]:hover {
-  background-color: #36005c;
+  background-color: #590099;
+}
+
+form a {
+  color: #7a00cc;
+  text-decoration: underline;
 }
 
 /* Responsive */
@@ -198,10 +210,11 @@ form button[type="submit"]:hover {
 
   .botones-principales button {
     width: 90%;
+    min-width: auto;
   }
 
   main {
-    margin: 20px;
-    padding: 15px;
+    margin: 20px 15px 40px 15px;
+    padding: 20px;
   }
 }
