@@ -4,37 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carrito de Compras | N'C BOOKS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="categoria.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    body { font-family: 'Lato', sans-serif; margin: 20px; }
-    .item { display: flex; align-items: center; margin-bottom: 10px; }
-    .item img { width: 80px; height: 100px; object-fit: cover; margin-right: 10px; }
-    .item-info { flex-grow: 1; }
-    button { margin-left: 10px; }
-    #formulario-compra { border: 1px solid #ccc; padding: 15px; margin-top: 20px; max-width: 400px; }
-    fieldset { margin-bottom: 15px; }
-    legend { font-weight: bold; }
-    label { display: block; margin: 5px 0 3px; }
-    input, select { width: 100%; padding: 5px; box-sizing: border-box; }
-    .botones-principales button, .botones-principales a button { margin-right: 10px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="carritodecompras.css" />
 </head>
 <body>
+  <header class="encabezado">
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="registro.html">Registrarse</a>
+    </nav>
+  </header>
 
+  <img src="logo.png" alt="logo" class="l" />
   <h1>🛒 Carrito de Compras</h1>
 
   <div id="carrito-contenido"></div>
-  <p id="total">Total: $0</p>
+  <p class="total" id="total">Total: $0</p>
 
   <div class="botones-principales">
     <button onclick="mostrarFormulario()">Pagar</button>
     <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    <a href="categoria.html"><button type="button">Volver al catálogo</button></a>
+    <a href="index.html"><button type="button">Volver al inicio</button></a>
   </div>
 
   <main>
-    <form id="formulario-compra" style="display:none;">
+    <form id="mostrarFormulario" style="display:none;">
       <h2>Finaliza tu compra en N'C BOOKS</h2>
 
       <fieldset>
@@ -68,9 +65,9 @@
         <input type="text" id="cvv" name="cvv" placeholder="Ej. 123" maxlength="4" required />
       </fieldset>
 
-      <label>
+      <label class="terminos">
         <input type="checkbox" id="terminos" required />
-        Acepto los <a href="#" target="_blank">términos y condiciones</a>.
+        Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a>.
       </label>
 
       <button type="submit">Confirmar Compra</button>
@@ -78,17 +75,8 @@
   </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Simulamos un carrito para demo si no hay nada en localStorage:
-      if (!localStorage.getItem('carrito')) {
-        const demoCarrito = [
-          { id: 1, nombre: 'Libro A', precio: 120, cantidad: 1, imagen: 'https://via.placeholder.com/80x100?text=Libro+A' },
-          { id: 2, nombre: 'Libro B', precio: 80, cantidad: 2, imagen: 'https://via.placeholder.com/80x100?text=Libro+B' }
-        ];
-        localStorage.setItem('carrito', JSON.stringify(demoCarrito));
-      }
-
-      let carrito = JSON.parse(localStorage.getItem('carrito'));
+    document.addEventListener('DOMContentLoaded', function () {
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
       const contenedor = document.getElementById('carrito-contenido');
       const totalTexto = document.getElementById('total');
       const formulario = document.getElementById('formulario-compra');
@@ -96,86 +84,87 @@
       function renderCarrito() {
         contenedor.innerHTML = '';
         let total = 0;
+
         if (carrito.length === 0) {
           contenedor.innerHTML = '<p>Tu carrito está vacío.</p>';
-          formulario.style.display = 'none';
-          totalTexto.textContent = 'Total: $0';
-          return;
+        } else {
+          carrito.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'item';
+            div.innerHTML = `
+              <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.nombre}">
+              <div class="item-info">
+                <strong>${item.nombre}</strong><br>
+                $${item.precio} x ${item.cantidad}
+              </div>
+              <button onclick="eliminarItem(${index})">Eliminar</button>
+            `;
+            contenedor.appendChild(div);
+            total += item.precio * item.cantidad;
+          });
         }
 
-        carrito.forEach((item, index) => {
-          const div = document.createElement('div');
-          div.className = 'item';
-          div.innerHTML = `
-            <img src="${item.imagen}" alt="${item.nombre}">
-            <div class="item-info">
-              <strong>${item.nombre}</strong><br>
-              $${item.precio} x ${item.cantidad}
-            </div>
-            <button type="button" data-index="${index}" class="btn-eliminar">Eliminar</button>
-          `;
-          contenedor.appendChild(div);
-          total += item.precio * item.cantidad;
-        });
         totalTexto.textContent = `Total: $${total.toFixed(2)}`;
       }
 
-      contenedor.addEventListener('click', e => {
-        if (e.target.classList.contains('btn-eliminar')) {
-          const index = Number(e.target.getAttribute('data-index'));
-          carrito.splice(index, 1);
-          localStorage.setItem('carrito', JSON.stringify(carrito));
-          renderCarrito();
-        }
-      });
+      window.eliminarItem = function(index) {
+        carrito.splice(index, 1);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        renderCarrito();
+      };
 
-      window.vaciarCarrito = () => {
+      window.vaciarCarrito = function() {
         if (confirm('¿Vaciar el carrito?')) {
           carrito = [];
           localStorage.setItem('carrito', JSON.stringify(carrito));
           renderCarrito();
+          formulario.style.display = 'none';
         }
       };
 
-      window.mostrarFormulario = () => {
+      window.mostrarFormulario = function() {
         if (carrito.length === 0) {
           alert('Tu carrito está vacío.');
-          return;
+        } else {
+          formulario.style.display = 'block';
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
-        formulario.style.display = 'block';
-        formulario.scrollIntoView({ behavior: 'smooth' });
       };
 
-      // Validación inputs numéricos para tarjeta y CVV
       document.getElementById('numero').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16);
       });
+
       document.getElementById('cvv').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
       });
 
       formulario.addEventListener('submit', e => {
         e.preventDefault();
+
         if (!formulario.checkValidity()) {
           alert('Por favor, completa todos los campos correctamente.');
           return;
         }
+
         const nombre = formulario.nombre.value.trim();
         const direccion = formulario.direccion.value.trim();
         const tipoTarjeta = formulario['tipo-tarjeta'].value;
         const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-        const comprobante = { nombre, direccion, tipoTarjeta, total: total.toFixed(2), carrito };
+        const comprobante = {
+          nombre,
+          direccion,
+          tipoTarjeta,
+          total: total.toFixed(2),
+          carrito
+        };
 
         sessionStorage.setItem('comprobante', JSON.stringify(comprobante));
-
         carrito = [];
         localStorage.removeItem('carrito');
-
         alert('¡Gracias por tu compra! Serás redirigido al comprobante.');
-        // Aquí redirigir a comprobante.html (crea esa página para mostrar el resumen)
-        // Para demo, solo recarga la página
-        location.reload();
+        window.location.href = 'comprobante.html';
       });
 
       renderCarrito();
