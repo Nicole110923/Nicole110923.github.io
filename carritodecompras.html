@@ -14,6 +14,7 @@
 <body>
   <header class="encabezado">
     <nav class="menu">
+      <img src="logo.png" alt="N'C BOOKS Logo" style="height:40px; vertical-align:middle;">
       <a href="index.html">Inicio</a>
       <a href="contacto.html">Contacto</a>
       <a href="registro.html">Registrarse</a>
@@ -26,7 +27,10 @@
   <section id="carrito-contenido">
     <ul id="carrito-lista"></ul>
     <div id="total" class="total"></div>
-    <button id="finalizar-compra">Finalizar compra</button>
+    <div class="botones-principales">
+      <button id="finalizar-compra">Finalizar compra</button>
+      <button id="vaciar-carrito">Vaciar carrito</button>
+    </div>
   </section>
 
   <section id="formulario-pago">
@@ -52,6 +56,7 @@
     const carritoLista = document.getElementById('carrito-lista');
     const totalDiv = document.getElementById('total');
     const btnFinalizar = document.getElementById('finalizar-compra');
+    const btnVaciar = document.getElementById('vaciar-carrito');
     const formularioPago = document.getElementById('formulario-pago');
     const pagoForm = document.getElementById('pago-form');
 
@@ -63,15 +68,27 @@
         carritoLista.innerHTML = '<li>No hay productos en el carrito.</li>';
         totalDiv.textContent = '';
         btnFinalizar.style.display = 'none';
+        btnVaciar.style.display = 'none';
         return;
       }
 
-      btnFinalizar.style.display = 'block';
+      btnFinalizar.style.display = 'inline-block';
+      btnVaciar.style.display = 'inline-block';
       let total = 0;
 
       carrito.forEach(producto => {
         const li = document.createElement('li');
-        li.textContent = `${producto.titulo} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
+        li.classList.add('item');
+
+        li.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.titulo}">
+          <div class="item-info">
+            <strong>${producto.titulo}</strong><br>
+            Cantidad: ${producto.cantidad}<br>
+            Precio: $${(producto.precio * producto.cantidad).toFixed(2)}
+          </div>
+          <button onclick="eliminarProducto('${producto.titulo}')">Eliminar</button>
+        `;
         carritoLista.appendChild(li);
         total += producto.precio * producto.cantidad;
       });
@@ -79,9 +96,21 @@
       totalDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
 
+    function eliminarProducto(titulo) {
+      carrito = carrito.filter(p => p.titulo !== titulo);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+
     btnFinalizar.addEventListener('click', () => {
       formularioPago.style.display = 'block';
       window.scrollTo({ top: formularioPago.offsetTop, behavior: 'smooth' });
+    });
+
+    btnVaciar.addEventListener('click', () => {
+      localStorage.removeItem('carrito');
+      carrito = [];
+      mostrarCarrito();
     });
 
     pagoForm.addEventListener('submit', e => {
@@ -101,6 +130,5 @@
 
     mostrarCarrito();
   </script>
-  <script src="carro.js"></script>
 </body>
 </html>
