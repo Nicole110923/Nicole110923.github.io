@@ -3,48 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Comprobante de Compra | N'C BOOKS</title>
+  <title>Comprobante de Compra</title>
   <style>
-    body { font-family: 'Lato', sans-serif; margin: 20px; }
-    h1 { margin-bottom: 20px; }
-    .item { display: flex; align-items: center; margin-bottom: 10px; }
-    .item img { width: 80px; height: 100px; object-fit: cover; margin-right: 10px; }
-    .item-info { flex-grow: 1; }
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 10px; }
+    h1 { color: green; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 6px; }
+    .info { margin-top: 15px; }
   </style>
 </head>
 <body>
 
-  <h1>Resumen de tu compra</h1>
-
-  <div id="resumen"></div>
+  <h1>Gracias por tu compra!</h1>
+  <div id="comprobante"></div>
 
   <script>
-    const resumenDiv = document.getElementById('resumen');
-    const comprobante = JSON.parse(sessionStorage.getItem('comprobante'));
+    const datosPago = JSON.parse(sessionStorage.getItem('datosPago'));
 
-    if (!comprobante) {
-      resumenDiv.innerHTML = '<p>No hay información de compra disponible.</p>';
+    const cont = document.getElementById('comprobante');
+
+    if (!datosPago) {
+      cont.innerHTML = '<p>No hay información de compra disponible.</p>';
     } else {
-      let html = `
-        <p><strong>Nombre:</strong> ${comprobante.nombre}</p>
-        <p><strong>Dirección:</strong> ${comprobante.direccion}</p>
-        <p><strong>Tipo de tarjeta:</strong> ${comprobante.tipoTarjeta}</p>
-        <p><strong>Total:</strong> $${comprobante.total}</p>
-        <h2>Productos:</h2>
-      `;
-      comprobante.carrito.forEach(item => {
-        html += `
-          <div class="item">
-            <img src="${item.imagen}" alt="${item.nombre}">
-            <div class="item-info">
-              <strong>${item.nombre}</strong><br>
-              Cantidad: ${item.cantidad} <br>
-              Precio unitario: $${item.precio}
-            </div>
-          </div>
-        `;
+      let html = `<h2>Detalles del pedido</h2>`;
+      html += `<p><strong>Fecha:</strong> ${datosPago.fecha}</p>`;
+      html += `<p><strong>Nombre:</strong> ${datosPago.nombre}</p>`;
+      html += `<p><strong>Dirección:</strong> ${datosPago.direccion}</p>`;
+      html += `<p><strong>Teléfono:</strong> ${datosPago.telefono}</p>`;
+
+      html += `<h3>Productos:</h3><ul>`;
+      datosPago.carrito.forEach(item => {
+        html += `<li>${item.titulo} - $${item.precio} x ${item.cantidad}</li>`;
       });
-      resumenDiv.innerHTML = html;
+      html += `</ul>`;
+
+      html += `<p><strong>Total pagado:</strong> $${datosPago.total}</p>`;
+
+      cont.innerHTML = html;
     }
   </script>
 
