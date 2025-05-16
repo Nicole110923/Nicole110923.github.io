@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carrito de Compras - N'C BOOKS</title>
-  <link rel="stylesheet" type="text/css" href="carritodecompras.css">
+  <link rel="stylesheet" href="carritodecompras.css">
 
   <!-- Fuente profesional -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,13 +97,13 @@
         const li = document.createElement('li');
         li.classList.add('item');
         li.innerHTML = `
-          <img src="${producto.imagen}" alt="${producto.titulo}">
+          <img src="${producto.imagen}" alt="${producto.nombre}">
           <div class="item-info">
-            <strong>${producto.titulo}</strong><br>
+            <strong>${producto.nombre}</strong><br>
             Cantidad: ${producto.cantidad}<br>
             Precio: $${(producto.precio * producto.cantidad).toFixed(2)}
           </div>
-          <button class="btn-eliminar" data-titulo="${producto.titulo}">Eliminar</button>
+          <button class="btn-eliminar" data-nombre="${producto.nombre}">Eliminar</button>
         `;
         carritoLista.appendChild(li);
         total += producto.precio * producto.cantidad;
@@ -112,11 +112,10 @@
       totalDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
 
-    // Eliminar producto (delegación de eventos)
     carritoLista.addEventListener('click', e => {
       if (e.target.classList.contains('btn-eliminar')) {
-        const titulo = e.target.getAttribute('data-titulo');
-        carrito = carrito.filter(p => p.titulo !== titulo);
+        const nombre = e.target.getAttribute('data-nombre');
+        carrito = carrito.filter(p => p.nombre !== nombre);
         localStorage.setItem('carrito', JSON.stringify(carrito));
         mostrarCarrito();
       }
