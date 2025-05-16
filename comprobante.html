@@ -11,7 +11,7 @@
 
   <header class="encabezado">
     <div class="contenedor-logo">
-
+      <!-- Aquí podrías incluir un logo si lo deseas -->
     </div>
     <h1>N'C BOOKS</h1>
     <p class="eslogan">¡Tu conexión con la lectura empieza aquí!</p>
@@ -48,23 +48,26 @@
   </footer>
 
   <script>
-    const data = JSON.parse(sessionStorage.getItem('comprobante'));
+    document.addEventListener("DOMContentLoaded", () => {
+      const data = JSON.parse(sessionStorage.getItem('comprobante'));
 
-    if (!data) {
-      document.body.innerHTML = '<p style="text-align:center; margin-top: 50px;">Error: No hay información de la compra.</p>';
-    } else {
+      if (!data) {
+        document.body.innerHTML = '<p style="text-align:center; margin-top: 50px;">⚠️ Error: No hay información de la compra.</p><p style="text-align:center;"><a href="index.html">Volver al inicio</a></p>';
+        return;
+      }
+
       document.getElementById('nombre').textContent = data.nombre;
       document.getElementById('direccion').textContent = data.direccion;
       document.getElementById('tarjeta').textContent = data.tipoTarjeta;
       document.getElementById('total').textContent = data.total;
 
       const lista = document.getElementById('lista-productos');
-      data.carrito.forEach(p => {
+      data.carrito.forEach(producto => {
         const li = document.createElement('li');
-        li.textContent = `${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toFixed(2)}`;
+        li.textContent = `${producto.nombre} x${producto.cantidad} - $${(producto.precio * producto.cantidad).toFixed(2)}`;
         lista.appendChild(li);
       });
-    }
+    });
   </script>
 
 </body>
